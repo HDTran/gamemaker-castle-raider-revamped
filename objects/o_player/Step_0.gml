@@ -1,37 +1,13 @@
 /// @description
 
 // get input
-var input = {
-	up: keyboard_check(vk_up),
-	right: keyboard_check(vk_right),
-	down: keyboard_check(vk_down),
-	left: keyboard_check(vk_left),
-}
+get_input();
 
 // calculate movement
-speeds.horizontalSpeed += (input.right - input.left) * speeds.walkSpeed;
-
-// drag
-speeds.horizontalSpeed = lerp(speeds.horizontalSpeed, 0, speeds.drag); // reduce to 0 by drag speed
-
-// stop if below threshold
-if (abs(speeds.horizontalSpeed) <= 0.1) { speeds.horizontalSpeed = 0; }
-
-// face correct direction
-if (speeds.horizontalSpeed != 0) { facing = sign(speeds.horizontalSpeed); }
-
-// limit speed
-speeds.horizontalSpeed = min(abs(speeds.horizontalSpeed), speeds.maxHorizontalSpeed) * facing;
+calc_movement();
 
 // apply movement
-x += speeds.horizontalSpeed;
-y += speeds.verticalSpeed;
+collision();
 
 // apply animations
-if (speeds.horizontalSpeed != 0) {
-	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
-	sprite_index = s_player_walk;
-} else {
-	sprite_index = s_player_idle;
-}
-
+anim();

@@ -1,7 +1,6 @@
 /// @description Init
 FACING_RIGHT = 1;
 
-
 speeds = {
 	horizontalSpeed: 0,
 	verticalSpeed: 0,
@@ -11,3 +10,10 @@ speeds = {
 }
 
 facing = FACING_RIGHT; // 1 is facing right, -1 is facing left
+
+input = {
+	up: 0,
+	right: 0,
+	down: 0,
+	left: 0,
+}	

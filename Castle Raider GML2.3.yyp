@@ -8,6 +8,7 @@
     {"id":{"name":"s_player_crouch_block","path":"sprites/s_player_crouch_block/s_player_crouch_block.yy",},"order":5,},
     {"id":{"name":"s_player_air_attack","path":"sprites/s_player_air_attack/s_player_air_attack.yy",},"order":1,},
     {"id":{"name":"JavaScript","path":"scripts/JavaScript/JavaScript.yy",},"order":0,},
+    {"id":{"name":"player_scripts","path":"scripts/player_scripts/player_scripts.yy",},"order":1,},
     {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},
     {"id":{"name":"s_player_block","path":"sprites/s_player_block/s_player_block.yy",},"order":4,},
     {"id":{"name":"s_player_attack","path":"sprites/s_player_attack/s_player_attack.yy",},"order":2,},
