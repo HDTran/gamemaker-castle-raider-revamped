@@ -15,7 +15,7 @@ speeds.horizontalSpeed += (input.right - input.left) * speeds.walkSpeed;
 speeds.horizontalSpeed = lerp(speeds.horizontalSpeed, 0, speeds.drag); // reduce to 0 by drag speed
 
 // stop if below threshold
-if (abs(speeds.horizontalSpeed) <= 0.1) { horizontalSpeed = 0; }
+if (abs(speeds.horizontalSpeed) <= 0.1) { speeds.horizontalSpeed = 0; }
 
 // face correct direction
 if (speeds.horizontalSpeed != 0) { facing = sign(speeds.horizontalSpeed); }
@@ -28,4 +28,10 @@ x += speeds.horizontalSpeed;
 y += speeds.verticalSpeed;
 
 // apply animations
-image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
+if (speeds.horizontalSpeed != 0) {
+	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
+	sprite_index = s_player_walk;
+} else {
+	sprite_index = s_player_idle;
+}
+
