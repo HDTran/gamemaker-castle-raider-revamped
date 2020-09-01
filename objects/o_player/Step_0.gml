@@ -1,13 +1,9 @@
 /// @description
-
-// get input
-get_input();
-
-// calculate movement
-calc_movement();
-
-// apply movement
-collision();
-
-// apply animations
-anim();
+switch(state) {
+	case states.IDLE:
+		player_idle_state();
+	break;
+	case states.WALK:
+		player_walk_state();
+	break;
+}

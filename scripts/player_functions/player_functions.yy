@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "player_scripts",
+  "name": "player_functions",
   "tags": [],
   "resourceType": "GMScript",
 }
