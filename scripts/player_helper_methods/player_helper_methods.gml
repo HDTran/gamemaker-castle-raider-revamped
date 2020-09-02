@@ -1,14 +1,32 @@
-function get_input() {
-	input = {
-		up: keyboard_check(vk_up),
-		right: keyboard_check(vk_right),
-		down: keyboard_check(vk_down),
-		left: keyboard_check(vk_left),
-		attack: keyboard_check_pressed(vk_shift),
-		jump: keyboard_check_pressed(vk_space),
-		jumpHeld: keyboard_check(vk_space),
-		block: keyboard_check(ord("Z")),
-	}	
+function anim() {
+	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
+	sprite_index = sprites[state];
+	
+	switch (state) {
+		case PLAYER_STATES.JUMP:
+			image_index = movement.verticalSpeed < 0 ? 0 : 1;
+		break;
+		case PLAYER_STATES.ATTACK:
+			if (!on_ground()) {
+				sprite_index = s_player_attack_walk;
+			} else {
+				sprite_index = movement.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
+			}
+		break;
+	}
+}
+
+function block_check() {
+	if (input.block) {
+		state = input.down ? PLAYER_STATES.CROUCH_BLOCK : PLAYER_STATES.BLOCK;
+		movement.horizontalSpeed = 0;
+	} else {
+		if (movement.horizontalSpeed != 0) {
+			state = !on_ground() ? PLAYER_STATES.JUMP : PLAYER_STATES.WALK;
+		} else {
+			state = input.down ? PLAYER_STATES.CROUCH : PLAYER_STATES.IDLE;
+		}
+	}
 }
 
 function calc_movement() {
@@ -80,30 +98,17 @@ function collision() {
 	y += movement.verticalSpeed;
 }
 
-function anim() {
-	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
-	sprite_index = sprites[state];
-	
-	switch (state) {
-		case PLAYER_STATES.JUMP:
-			image_index = movement.verticalSpeed < 0 ? 0 : 1;
-		break;
-		case PLAYER_STATES.ATTACK:
-			if (!on_ground()) {
-				sprite_index = s_player_attack_walk;
-			} else {
-				sprite_index = movement.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
-			}
-		break;
-	}
-}
-
-function on_ground() {
-	var side = bbox_bottom;
-	var testBottomLeft = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
-	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
-	
-	return(testBottomLeft == SOLID || testBottomRight == SOLID);
+function get_input() {
+	input = {
+		up: keyboard_check(vk_up),
+		right: keyboard_check(vk_right),
+		down: keyboard_check(vk_down),
+		left: keyboard_check(vk_left),
+		attack: keyboard_check_pressed(vk_shift),
+		jump: keyboard_check_pressed(vk_space),
+		jumpHeld: keyboard_check(vk_space),
+		block: keyboard_check(ord("Z")),
+	}	
 }
 
 function jump_dust() {
@@ -122,4 +127,12 @@ function jumped() {
 		movement.jumps -= 1;
 		jump_dust();
 	}
+}
+
+function on_ground() {
+	var side = bbox_bottom;
+	var testBottomLeft = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
+	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
+	
+	return(testBottomLeft == SOLID || testBottomRight == SOLID);
 }

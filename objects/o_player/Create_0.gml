@@ -43,8 +43,8 @@ stepFunctions[PLAYER_STATES.WALK] = player_walk_step;
 stepFunctions[PLAYER_STATES.JUMP] = player_jump_step;
 stepFunctions[PLAYER_STATES.ATTACK] = player_attack_step;
 stepFunctions[PLAYER_STATES.BLOCK] = player_block_step;
-stepFunctions[PLAYER_STATES.CROUCH] = player_idle_step;
-stepFunctions[PLAYER_STATES.CROUCH_BLOCK] = player_idle_step;
+stepFunctions[PLAYER_STATES.CROUCH] = player_crouch_step;
+stepFunctions[PLAYER_STATES.CROUCH_BLOCK] = player_crouch_block_step;
 
 sprites[PLAYER_STATES.IDLE] = s_player_idle;
 sprites[PLAYER_STATES.WALK] = s_player_walk;

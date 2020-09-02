@@ -27,17 +27,39 @@ function player_block_step() {
 	get_input();
 	calc_movement();
 	// check state
+	block_check();
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
 	}
-	if (input.block) {
-		movement.horizontalSpeed = 0; // stop movement
-	} else {
-		if (movement.horizontalSpeed != 0) {
-			state = !on_ground() ? PLAYER_STATES.JUMP : PLAYER_STATES.WALK;
-		} else {
-			state = PLAYER_STATES.IDLE;
-		}
+	if (input.jump) {
+		jumped();
+	}
+	collision(); // apply movement
+	anim(); // apply animations
+};
+
+function player_crouch_step() {
+	get_input();
+	calc_movement();
+	// check state
+	block_check();
+	if (input.attack) {
+		state = PLAYER_STATES.ATTACK;
+	}
+	if (input.jump) {
+		jumped();
+	}
+	collision(); // apply movement
+	anim(); // apply animations
+};
+
+function player_crouch_block_step() {
+	get_input();
+	calc_movement();
+	// check state
+	block_check();
+	if (input.attack) {
+		state = PLAYER_STATES.ATTACK;
 	}
 	if (input.jump) {
 		jumped();
@@ -50,15 +72,9 @@ function player_idle_step() {
 	get_input();
 	calc_movement();
 	// check state
-	if (movement.horizontalSpeed != 0) {
-		state = PLAYER_STATES.WALK;
-	}
+	block_check();
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
-	}
-	if (input.block) {
-		state = PLAYER_STATES.BLOCK;
-		movement.horizontalSpeed = 0; // stop movement
 	}
 	if (input.jump) {
 		jumped();
@@ -110,15 +126,9 @@ function player_walk_step() {
 		movement.jumps = movement.jumpsInitial;
 	}
 	
-	if (movement.horizontalSpeed == 0) {
-		state = PLAYER_STATES.IDLE;
-	}
+	block_check();
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
-	}
-	if (input.block) {
-		state = PLAYER_STATES.BLOCK;
-		movement.horizontalSpeed = 0; // stop movement
 	}
 	if (input.jump) {
 		jumped();
