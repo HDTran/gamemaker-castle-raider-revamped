@@ -4,6 +4,7 @@ function get_input() {
 		right: keyboard_check(vk_right),
 		down: keyboard_check(vk_down),
 		left: keyboard_check(vk_left),
+		attack: keyboard_check_pressed(vk_shift),
 	}	
 }
 
@@ -30,9 +31,5 @@ function collision() {
 
 function anim() {
 	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
-	if (speeds.horizontalSpeed != 0) {
-		sprite_index = s_player_walk;
-	} else {
-		sprite_index = s_player_idle;
-	}
+	sprite_index = sprites[state];
 }

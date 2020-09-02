@@ -25,38 +25,23 @@ input = {
 	right: 0,
 	down: 0,
 	left: 0,
+	attack: 0,
 }
 
 state = PLAYER_STATES.IDLE;
 
 stepFunctions[PLAYER_STATES.IDLE] = player_idle_step;
 stepFunctions[PLAYER_STATES.WALK] = player_walk_step;
+stepFunctions[PLAYER_STATES.JUMP] = player_idle_step;
+stepFunctions[PLAYER_STATES.ATTACK] = player_attack_step;
+stepFunctions[PLAYER_STATES.BLOCK] = player_idle_step;
+stepFunctions[PLAYER_STATES.CROUCH] = player_idle_step;
+stepFunctions[PLAYER_STATES.CROUCH_BLOCK] = player_idle_step;
 
-states[PLAYER_STATES.IDLE] = {
-	sprite: s_player_idle,
-	step: stepFunctions[PLAYER_STATES.IDLE],
-};
-states[PLAYER_STATES.WALK] = {
-	sprite: s_player_walk,
-	step: stepFunctions[PLAYER_STATES.WALK],
-};
-states[PLAYER_STATES.JUMP] = {
-	sprite: s_player_jump,
-	step: function() {},
-};
-states[PLAYER_STATES.ATTACK] = {
-	sprite: s_player_attack,
-	step: function() {},
-};
-states[PLAYER_STATES.BLOCK] = {
-	sprite: s_player_block,
-	step: function() {},
-};
-states[PLAYER_STATES.CROUCH] = {
-	sprite: s_player_crouch,
-	step: function() {},
-};
-states[PLAYER_STATES.CROUCH_BLOCK] = {
-	sprite: s_player_crouch_block,
-	step: function() {},
-};
+sprites[PLAYER_STATES.IDLE] = s_player_idle;
+sprites[PLAYER_STATES.WALK] = s_player_walk;
+sprites[PLAYER_STATES.JUMP] = s_player_jump;
+sprites[PLAYER_STATES.ATTACK] = s_player_attack;
+sprites[PLAYER_STATES.BLOCK] = s_player_block;
+sprites[PLAYER_STATES.CROUCH] = s_player_crouch;
+sprites[PLAYER_STATES.CROUCH_BLOCK] = s_player_crouch_block;
