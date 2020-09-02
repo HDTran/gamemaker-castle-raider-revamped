@@ -14,6 +14,8 @@ speeds = {
 	horizontalSpeed: 0,
 	verticalSpeed: 0,
 	maxHorizontalSpeed: 2,
+	horizontalSpeedDecimal: 0, // subpixel remainder to be carried over post calculation
+	verticalSpeedDecimal: 0, // subpixel remainder to be carried over post calculation
 	walkSpeed: 1.5,
 	drag: 0.15,
 }

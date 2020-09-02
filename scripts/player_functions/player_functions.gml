@@ -25,6 +25,35 @@ function calc_movement() {
 }
 
 function collision() {
+	// horizontal collision
+	// apply carried over decimals from previous step/iteration
+	speeds.horizontalSpeed += speeds.horizontalSpeedDecimal;
+	speeds.verticalSpeed += speeds.verticalSpeedDecimal;
+	
+	// floor decimals, then save and subtract
+	speeds.horizontalSpeedDecimal = speeds.horizontalSpeed - (floor(abs(speeds.horizontalSpeed)) * sign(speeds.horizontalSpeed));
+	speeds.horizontalSpeed -= speeds.horizontalSpeedDecimal;
+	speeds.verticalSpeedDecimal = speeds.verticalSpeed - (floor(abs(speeds.verticalSpeed)) * sign(speeds.verticalSpeed));
+	speeds.verticalSpeed -= speeds.verticalSpeedDecimal;
+	
+	// determine left or right side
+	var isRightSide = speeds.horizontalSpeed > 0;
+	var side = isRightSide ? bbox_right : bbox_left;
+	
+	// check top and bottom of side
+	var testSideTop = tilemap_get_at_pixel(global.map, side + speeds.horizontalSpeed, bbox_top);
+	var testSideBottom = tilemap_get_at_pixel(global.map, side + speeds.horizontalSpeed, bbox_bottom);
+	
+	if (testSideTop != VOID || testSideBottom != VOID) {
+		// collision found (remember x is at the center due to bottom center setting)
+		if (isRightSide) {
+			x = x - (x mod global.tileSize) + global.tileSize - 1 - (side - x);
+		} else {
+			x = x - (x mod global.tileSize) - (side - x);
+		}
+		speeds.horizontalSpeed = 0;
+	}
+	
 	x += speeds.horizontalSpeed;
 	y += speeds.verticalSpeed;
 }

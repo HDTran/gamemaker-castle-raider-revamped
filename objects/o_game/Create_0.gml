@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Init values
 // tiles
 // get tilemap
 global.map = layer_tilemap_get_id("collisions");
