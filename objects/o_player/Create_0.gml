@@ -1,4 +1,13 @@
 /// @description Init
+enum PLAYER_STATES {
+	IDLE,
+	WALK,
+	JUMP,
+	ATTACK,
+	BLOCK,
+	CROUCH,
+	CROUCH_BLOCK,
+};
 FACING_RIGHT = 1;
 
 speeds = {
@@ -18,44 +27,36 @@ input = {
 	left: 0,
 }
 
-// states
-enum states { IDLE, WALK };
-state = states.IDLE;
+state = PLAYER_STATES.IDLE;
 
-player_idle_state = function() {
-	// get input
-	get_input();
+stepFunctions[PLAYER_STATES.IDLE] = player_idle_step;
+stepFunctions[PLAYER_STATES.WALK] = player_walk_step;
 
-	// calculate movement
-	calc_movement();
-
-	// check state
-	if (speeds.horizontalSpeed != 0) {
-		state = states.WALK;	
-	}
-
-	// apply movement
-	collision();
-
-	// apply animations
-	anim();
-}
-
-player_walk_state = function() {
-	// get input
-	get_input();
-
-	// calculate movement
-	calc_movement();
-
-	// check state
-	if (speeds.horizontalSpeed == 0) {
-		state = states.IDLE;	
-	}
-
-	// apply movement
-	collision();
-
-	// apply animations
-	anim();
-}
+states[PLAYER_STATES.IDLE] = {
+	sprite: s_player_idle,
+	step: stepFunctions[PLAYER_STATES.IDLE],
+};
+states[PLAYER_STATES.WALK] = {
+	sprite: s_player_walk,
+	step: stepFunctions[PLAYER_STATES.WALK],
+};
+states[PLAYER_STATES.JUMP] = {
+	sprite: s_player_jump,
+	step: function() {},
+};
+states[PLAYER_STATES.ATTACK] = {
+	sprite: s_player_attack,
+	step: function() {},
+};
+states[PLAYER_STATES.BLOCK] = {
+	sprite: s_player_block,
+	step: function() {},
+};
+states[PLAYER_STATES.CROUCH] = {
+	sprite: s_player_crouch,
+	step: function() {},
+};
+states[PLAYER_STATES.CROUCH_BLOCK] = {
+	sprite: s_player_crouch_block,
+	step: function() {},
+};
