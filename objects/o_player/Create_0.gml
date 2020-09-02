@@ -29,7 +29,8 @@ input = {
 	down: 0,
 	left: 0,
 	attack: 0,
-	jump: 0
+	jump: 0,
+	block: 0
 }
 
 state = PLAYER_STATES.IDLE;
@@ -38,7 +39,7 @@ stepFunctions[PLAYER_STATES.IDLE] = player_idle_step;
 stepFunctions[PLAYER_STATES.WALK] = player_walk_step;
 stepFunctions[PLAYER_STATES.JUMP] = player_jump_step;
 stepFunctions[PLAYER_STATES.ATTACK] = player_attack_step;
-stepFunctions[PLAYER_STATES.BLOCK] = player_idle_step;
+stepFunctions[PLAYER_STATES.BLOCK] = player_block_step;
 stepFunctions[PLAYER_STATES.CROUCH] = player_idle_step;
 stepFunctions[PLAYER_STATES.CROUCH_BLOCK] = player_idle_step;
 

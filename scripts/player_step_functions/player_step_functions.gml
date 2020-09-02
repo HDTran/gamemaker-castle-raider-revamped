@@ -13,6 +13,30 @@ function player_attack_step() {
 	anim(); // apply animations
 }
 
+function player_block_step() {
+	get_input();
+	calc_movement();
+	// check state
+	if (input.attack) {
+		state = PLAYER_STATES.ATTACK;
+	}
+	if (input.block) {
+		speeds.horizontalSpeed = 0; // stop movement
+	} else {
+		if (speeds.horizontalSpeed != 0) {
+			state = !on_ground() ? PLAYER_STATES.JUMP : PLAYER_STATES.WALK;
+		} else {
+			state = PLAYER_STATES.IDLE;
+		}
+	}
+	if (input.jump) {
+		state = PLAYER_STATES.JUMP;
+		speeds.verticalSpeed = speeds.jumpSpeed;
+	}
+	collision(); // apply movement
+	anim(); // apply animations
+};
+
 function player_idle_step() {
 	get_input();
 	calc_movement();
@@ -22,6 +46,10 @@ function player_idle_step() {
 	}
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
+	}
+	if (input.block) {
+		state = PLAYER_STATES.BLOCK;
+		speeds.horizontalSpeed = 0; // stop movement
 	}
 	if (input.jump) {
 		state = PLAYER_STATES.JUMP;
@@ -55,6 +83,10 @@ function player_walk_step() {
 	}
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
+	}
+	if (input.block) {
+		state = PLAYER_STATES.BLOCK;
+		speeds.horizontalSpeed = 0; // stop movement
 	}
 	if (input.jump) {
 		state = PLAYER_STATES.JUMP;
