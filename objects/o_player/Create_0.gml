@@ -53,3 +53,11 @@ sprites[PLAYER_STATES.ATTACK] = s_player_attack;
 sprites[PLAYER_STATES.BLOCK] = s_player_block;
 sprites[PLAYER_STATES.CROUCH] = s_player_crouch;
 sprites[PLAYER_STATES.CROUCH_BLOCK] = s_player_crouch_block;
+
+masks[PLAYER_STATES.IDLE] = s_player_idle;
+masks[PLAYER_STATES.WALK] = s_player_idle;
+masks[PLAYER_STATES.JUMP] = s_player_idle;
+masks[PLAYER_STATES.ATTACK] = s_player_idle;
+masks[PLAYER_STATES.BLOCK] = s_player_idle;
+masks[PLAYER_STATES.CROUCH] = s_player_crouch;
+masks[PLAYER_STATES.CROUCH_BLOCK] = s_player_crouch;
