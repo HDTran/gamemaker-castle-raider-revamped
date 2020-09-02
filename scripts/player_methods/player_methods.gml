@@ -74,6 +74,11 @@ function player_jump_step() {
 	// check state
 	if (on_ground()) {
 		state = movement.horizontalSpeed != 0 ? PLAYER_STATES.WALK : PLAYER_STATES.IDLE;
+		
+		// create dust if landing
+		if (movement.verticalSpeed > 0) {
+			instance_create_layer(x, y, "Dust", o_player_dust_land);
+		}
 	}
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;

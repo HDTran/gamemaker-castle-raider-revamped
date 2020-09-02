@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "Player",
-    "path": "folders/Scripts/Player.yy",
+    "path": "folders/Objects/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "player_step_functions",
+  "name": "player_helper_methods",
   "tags": [],
   "resourceType": "GMScript",
 }

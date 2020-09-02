@@ -106,6 +106,11 @@ function on_ground() {
 	return(testBottomLeft == SOLID || testBottomRight == SOLID);
 }
 
+function jump_dust() {
+	var inst = instance_create_layer(x, y, "Dust", o_player_dust_jump);
+	inst.image_xscale = facing; // change in relation to player
+}
+
 function jumped() {
 	if (on_ground()) {
 		movement.jumps = movement.jumpsInitial;
@@ -115,5 +120,6 @@ function jumped() {
 		state = PLAYER_STATES.JUMP;
 		movement.verticalSpeed = movement.jumpSpeed;
 		movement.jumps -= 1;
+		jump_dust();
 	}
 }
