@@ -62,6 +62,7 @@ function player_idle_step() {
 function player_jump_step() {
 	get_input();
 	calc_movement();
+	
 	// check state
 	if (on_ground()) {
 		state = speeds.horizontalSpeed != 0 ? PLAYER_STATES.WALK : PLAYER_STATES.IDLE;
@@ -69,6 +70,11 @@ function player_jump_step() {
 	if (input.attack) {
 		state = PLAYER_STATES.ATTACK;
 	}
+	// enable smalller jumps
+	if (speeds.verticalSpeed < 0 && !input.jumpHeld) {
+		speeds.verticalSpeed = max(speeds.verticalSpeed, speeds.jumpSpeed/speeds.jumpDampner);
+	}
+	
 	collision(); // apply movement
 	anim(); // apply animations
 };

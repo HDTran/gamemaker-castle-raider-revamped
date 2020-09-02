@@ -6,6 +6,7 @@ function get_input() {
 		left: keyboard_check(vk_left),
 		attack: keyboard_check_pressed(vk_shift),
 		jump: keyboard_check_pressed(vk_space),
+		jumpHeld: keyboard_check(vk_space),
 		block: keyboard_check(ord("Z")),
 	}	
 }

@@ -18,6 +18,7 @@ speeds = {
 	verticalSpeedDecimal: 0, // subpixel remainder to be carried over post calculation
 	walkSpeed: 1.5,
 	drag: 0.15,
+	jumpDampner: 2.5,
 	jumpSpeed: -5,
 }
 
@@ -30,6 +31,7 @@ input = {
 	left: 0,
 	attack: 0,
 	jump: 0,
+	jumpHeld: 0,
 	block: 0
 }
 
