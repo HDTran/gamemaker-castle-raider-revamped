@@ -10,6 +10,7 @@ function get_input() {
 
 function calc_movement() {
 	speeds.horizontalSpeed += (input.right - input.left) * speeds.walkSpeed;
+	speeds.verticalSpeed += global.gravity;
 
 	// drag
 	speeds.horizontalSpeed = lerp(speeds.horizontalSpeed, 0, speeds.drag); // reduce to 0 by drag speed
@@ -25,7 +26,6 @@ function calc_movement() {
 }
 
 function collision() {
-	// horizontal collision
 	// apply carried over decimals from previous step/iteration
 	speeds.horizontalSpeed += speeds.horizontalSpeedDecimal;
 	speeds.verticalSpeed += speeds.verticalSpeedDecimal;
@@ -36,6 +36,7 @@ function collision() {
 	speeds.verticalSpeedDecimal = speeds.verticalSpeed - (floor(abs(speeds.verticalSpeed)) * sign(speeds.verticalSpeed));
 	speeds.verticalSpeed -= speeds.verticalSpeedDecimal;
 	
+	// horizontal collisions
 	// determine left or right side
 	var isRightSide = speeds.horizontalSpeed > 0;
 	var side = isRightSide ? bbox_right : bbox_left;
@@ -53,8 +54,26 @@ function collision() {
 		}
 		speeds.horizontalSpeed = 0;
 	}
-	
 	x += speeds.horizontalSpeed;
+	
+	// vertical collisions
+	// determine bottom or top
+	var isBottom = speeds.verticalSpeed > 0;
+	var side = isBottom ? bbox_bottom : bbox_top;
+	
+	// check left and right of bottom/top
+	var testLeft = tilemap_get_at_pixel(global.map, bbox_left, side + speeds.verticalSpeed);
+	var testRight = tilemap_get_at_pixel(global.map, bbox_right, side + speeds.verticalSpeed);
+	
+	if (testLeft != VOID || testRight != VOID) {
+		// collision found
+		if (isBottom) {
+			y = y - (y mod global.tileSize) + global.tileSize - 1 - (side - y);
+		} else {
+			y = y - (y mod global.tileSize) - (side - y);
+		}
+		speeds.verticalSpeed = 0;
+	}
 	y += speeds.verticalSpeed;
 }
 
