@@ -12,41 +12,41 @@ function get_input() {
 }
 
 function calc_movement() {
-	speeds.horizontalSpeed += (input.right - input.left) * speeds.walkSpeed;
-	speeds.verticalSpeed += global.gravity;
+	movement.horizontalSpeed += (input.right - input.left) * movement.walkSpeed;
+	movement.verticalSpeed += global.gravity;
 
 	// drag
-	speeds.horizontalSpeed = lerp(speeds.horizontalSpeed, 0, speeds.drag); // reduce to 0 by drag speed
+	movement.horizontalSpeed = lerp(movement.horizontalSpeed, 0, movement.drag); // reduce to 0 by drag speed
 
 	// stop if below threshold
-	if (abs(speeds.horizontalSpeed) <= 0.1) { speeds.horizontalSpeed = 0; }
+	if (abs(movement.horizontalSpeed) <= 0.1) { movement.horizontalSpeed = 0; }
 
 	// face correct direction
-	if (speeds.horizontalSpeed != 0) { facing = sign(speeds.horizontalSpeed); }
+	if (movement.horizontalSpeed != 0) { facing = sign(movement.horizontalSpeed); }
 
 	// limit speed
-	speeds.horizontalSpeed = min(abs(speeds.horizontalSpeed), speeds.maxHorizontalSpeed) * facing;
+	movement.horizontalSpeed = min(abs(movement.horizontalSpeed), movement.maxHorizontalSpeed) * facing;
 }
 
 function collision() {
 	// apply carried over decimals from previous step/iteration
-	speeds.horizontalSpeed += speeds.horizontalSpeedDecimal;
-	speeds.verticalSpeed += speeds.verticalSpeedDecimal;
+	movement.horizontalSpeed += movement.horizontalSpeedDecimal;
+	movement.verticalSpeed += movement.verticalSpeedDecimal;
 	
 	// floor decimals, then save and subtract
-	speeds.horizontalSpeedDecimal = speeds.horizontalSpeed - (floor(abs(speeds.horizontalSpeed)) * sign(speeds.horizontalSpeed));
-	speeds.horizontalSpeed -= speeds.horizontalSpeedDecimal;
-	speeds.verticalSpeedDecimal = speeds.verticalSpeed - (floor(abs(speeds.verticalSpeed)) * sign(speeds.verticalSpeed));
-	speeds.verticalSpeed -= speeds.verticalSpeedDecimal;
+	movement.horizontalSpeedDecimal = movement.horizontalSpeed - (floor(abs(movement.horizontalSpeed)) * sign(movement.horizontalSpeed));
+	movement.horizontalSpeed -= movement.horizontalSpeedDecimal;
+	movement.verticalSpeedDecimal = movement.verticalSpeed - (floor(abs(movement.verticalSpeed)) * sign(movement.verticalSpeed));
+	movement.verticalSpeed -= movement.verticalSpeedDecimal;
 	
 	// horizontal collisions
 	// determine left or right side
-	var isRightSide = speeds.horizontalSpeed > 0;
+	var isRightSide = movement.horizontalSpeed > 0;
 	var side = isRightSide ? bbox_right : bbox_left;
 	
 	// check top and bottom of side
-	var testSideTop = tilemap_get_at_pixel(global.map, side + speeds.horizontalSpeed, bbox_top);
-	var testSideBottom = tilemap_get_at_pixel(global.map, side + speeds.horizontalSpeed, bbox_bottom);
+	var testSideTop = tilemap_get_at_pixel(global.map, side + movement.horizontalSpeed, bbox_top);
+	var testSideBottom = tilemap_get_at_pixel(global.map, side + movement.horizontalSpeed, bbox_bottom);
 	
 	if (testSideTop != VOID || testSideBottom != VOID) {
 		// collision found (remember x is at the center due to bottom center setting)
@@ -55,18 +55,18 @@ function collision() {
 		} else {
 			x = x - (x mod global.tileSize) - (side - x);
 		}
-		speeds.horizontalSpeed = 0;
+		movement.horizontalSpeed = 0;
 	}
-	x += speeds.horizontalSpeed;
+	x += movement.horizontalSpeed;
 	
 	// vertical collisions
 	// determine bottom or top
-	var isBottom = speeds.verticalSpeed > 0;
+	var isBottom = movement.verticalSpeed > 0;
 	var side = isBottom ? bbox_bottom : bbox_top;
 	
 	// check left and right of bottom/top
-	var testLeft = tilemap_get_at_pixel(global.map, bbox_left, side + speeds.verticalSpeed);
-	var testRight = tilemap_get_at_pixel(global.map, bbox_right, side + speeds.verticalSpeed);
+	var testLeft = tilemap_get_at_pixel(global.map, bbox_left, side + movement.verticalSpeed);
+	var testRight = tilemap_get_at_pixel(global.map, bbox_right, side + movement.verticalSpeed);
 	
 	if (testLeft != VOID || testRight != VOID) {
 		// collision found
@@ -75,9 +75,9 @@ function collision() {
 		} else {
 			y = y - (y mod global.tileSize) - (side - y);
 		}
-		speeds.verticalSpeed = 0;
+		movement.verticalSpeed = 0;
 	}
-	y += speeds.verticalSpeed;
+	y += movement.verticalSpeed;
 }
 
 function anim() {
@@ -86,13 +86,13 @@ function anim() {
 	
 	switch (state) {
 		case PLAYER_STATES.JUMP:
-			image_index = speeds.verticalSpeed < 0 ? 0 : 1;
+			image_index = movement.verticalSpeed < 0 ? 0 : 1;
 		break;
 		case PLAYER_STATES.ATTACK:
 			if (!on_ground()) {
 				sprite_index = s_player_attack_walk;
 			} else {
-				sprite_index = speeds.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
+				sprite_index = movement.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
 			}
 		break;
 	}
@@ -104,4 +104,16 @@ function on_ground() {
 	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
 	
 	return(testBottomLeft == SOLID || testBottomRight == SOLID);
+}
+
+function jumped() {
+	if (on_ground()) {
+		movement.jumps = movement.jumpsInitial;
+	}
+	
+	if (movement.jumps > 0) {
+		state = PLAYER_STATES.JUMP;
+		movement.verticalSpeed = movement.jumpSpeed;
+		movement.jumps -= 1;
+	}
 }

@@ -8,9 +8,8 @@ enum PLAYER_STATES {
 	CROUCH,
 	CROUCH_BLOCK,
 };
-FACING_RIGHT = 1;
 
-speeds = {
+movement = {
 	horizontalSpeed: 0,
 	verticalSpeed: 0,
 	maxHorizontalSpeed: 2,
@@ -20,9 +19,11 @@ speeds = {
 	drag: 0.15,
 	jumpDampner: 2.5,
 	jumpSpeed: -5,
+	jumpsInitial: 2,
+	jumps: 2,
 }
 
-facing = FACING_RIGHT; // 1 is facing right, -1 is facing left
+facing = 1; // 1 is facing right, -1 is facing left
 
 input = {
 	up: 0,
