@@ -5,6 +5,7 @@ function get_input() {
 		down: keyboard_check(vk_down),
 		left: keyboard_check(vk_left),
 		attack: keyboard_check_pressed(vk_shift),
+		jump: keyboard_check_pressed(vk_space),
 	}	
 }
 
@@ -80,4 +81,25 @@ function collision() {
 function anim() {
 	image_xscale = facing; // reface, 1 is normal scale and -1 is flipped
 	sprite_index = sprites[state];
+	
+	switch (state) {
+		case PLAYER_STATES.JUMP:
+			image_index = speeds.verticalSpeed < 0 ? 0 : 1;
+		break;
+		case PLAYER_STATES.ATTACK:
+			if (!on_ground()) {
+				sprite_index = s_player_attack_walk;
+			} else {
+				sprite_index = speeds.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
+			}
+		break;
+	}
+}
+
+function on_ground() {
+	var side = bbox_bottom;
+	var testBottomLeft = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
+	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
+	
+	return(testBottomLeft == SOLID || testBottomRight == SOLID);
 }

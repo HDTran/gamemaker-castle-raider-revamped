@@ -18,6 +18,7 @@ speeds = {
 	verticalSpeedDecimal: 0, // subpixel remainder to be carried over post calculation
 	walkSpeed: 1.5,
 	drag: 0.15,
+	jumpSpeed: -5,
 }
 
 facing = FACING_RIGHT; // 1 is facing right, -1 is facing left
@@ -28,13 +29,14 @@ input = {
 	down: 0,
 	left: 0,
 	attack: 0,
+	jump: 0
 }
 
 state = PLAYER_STATES.IDLE;
 
 stepFunctions[PLAYER_STATES.IDLE] = player_idle_step;
 stepFunctions[PLAYER_STATES.WALK] = player_walk_step;
-stepFunctions[PLAYER_STATES.JUMP] = player_idle_step;
+stepFunctions[PLAYER_STATES.JUMP] = player_jump_step;
 stepFunctions[PLAYER_STATES.ATTACK] = player_attack_step;
 stepFunctions[PLAYER_STATES.BLOCK] = player_idle_step;
 stepFunctions[PLAYER_STATES.CROUCH] = player_idle_step;
