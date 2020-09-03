@@ -8,10 +8,12 @@
     {"id":{"name":"player_methods","path":"scripts/player_methods/player_methods.yy",},"order":4,},
     {"id":{"name":"s_player_jump","path":"sprites/s_player_jump/s_player_jump.yy",},"order":7,},
     {"id":{"name":"t_collisions","path":"tilesets/t_collisions/t_collisions.yy",},"order":0,},
+    {"id":{"name":"o_camera","path":"objects/o_camera/o_camera.yy",},"order":5,},
     {"id":{"name":"s_player_crouch","path":"sprites/s_player_crouch/s_player_crouch.yy",},"order":5,},
     {"id":{"name":"s_player_walk","path":"sprites/s_player_walk/s_player_walk.yy",},"order":8,},
     {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":1,},
     {"id":{"name":"s_player_crouch_block","path":"sprites/s_player_crouch_block/s_player_crouch_block.yy",},"order":4,},
+    {"id":{"name":"rm_00","path":"rooms/rm_00/rm_00.yy",},"order":1,},
     {"id":{"name":"s_tile_collisions","path":"sprites/s_tile_collisions/s_tile_collisions.yy",},"order":0,},
     {"id":{"name":"s_player_air_attack","path":"sprites/s_player_air_attack/s_player_air_attack.yy",},"order":0,},
     {"id":{"name":"player_helper_methods","path":"scripts/player_helper_methods/player_helper_methods.yy",},"order":3,},
@@ -20,7 +22,7 @@
     {"id":{"name":"s_player_block","path":"sprites/s_player_block/s_player_block.yy",},"order":3,},
     {"id":{"name":"s_player_dust_land","path":"sprites/s_player_dust_land/s_player_dust_land.yy",},"order":10,},
     {"id":{"name":"s_player_attack","path":"sprites/s_player_attack/s_player_attack.yy",},"order":1,},
-    {"id":{"name":"rm_00","path":"rooms/rm_00/rm_00.yy",},"order":0,},
+    {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -36,6 +38,7 @@
     "children": [],
   },
   "RoomOrder": [
+    {"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},
     {"name":"rm_00","path":"rooms/rm_00/rm_00.yy",},
   ],
   "Folders": [

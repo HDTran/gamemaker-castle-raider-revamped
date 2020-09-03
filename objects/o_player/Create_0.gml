@@ -36,6 +36,8 @@ input = {
 	block: 0
 }
 
+o_camera.follow = o_player;
+
 state = PLAYER_STATES.IDLE;
 
 stepFunctions[PLAYER_STATES.IDLE] = player_idle_step;

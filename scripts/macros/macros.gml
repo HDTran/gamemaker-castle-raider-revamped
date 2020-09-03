@@ -2,4 +2,4 @@
 #macro SOLID 1
 #macro PLATFORM 2
 
-function macros() {}
+#macro CAMERA_RESET 0

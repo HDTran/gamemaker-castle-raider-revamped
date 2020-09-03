@@ -110,7 +110,7 @@ function get_input() {
 		jumpHeld: keyboard_check(vk_space),
 		block: keyboard_check(ord("Z")),
 	}
-	
+
 	// controller input
 	var deviceIndex = 0; // first gamepad (of 4)
 	var deadzone = 0.3;
