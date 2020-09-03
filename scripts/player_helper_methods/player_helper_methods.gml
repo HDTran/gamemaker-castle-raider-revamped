@@ -48,6 +48,12 @@ function calc_movement() {
 }
 
 function collision() {
+	if (movement.horizontalSpeed == 0) {
+		movement.horizontalSpeedDecimal = 0;
+	}
+	if (movement.verticalSpeed == 0) {
+		movement.verticalSpeedDecimal = 0;
+	}
 	// apply carried over decimals from previous step/iteration
 	movement.horizontalSpeed += movement.horizontalSpeedDecimal;
 	movement.verticalSpeed += movement.verticalSpeedDecimal;
@@ -67,7 +73,7 @@ function collision() {
 	var testSideTop = tilemap_get_at_pixel(global.map, side + movement.horizontalSpeed, bbox_top);
 	var testSideBottom = tilemap_get_at_pixel(global.map, side + movement.horizontalSpeed, bbox_bottom);
 	
-	if (testSideTop != VOID || testSideBottom != VOID) {
+	if ((testSideTop != VOID && testSideTop != PLATFORM) || (testSideBottom != VOID && testSideBottom != PLATFORM)) {
 		// collision found (remember x is at the center due to bottom center setting)
 		if (isRightSide) {
 			x = x - (x mod global.tileSize) + global.tileSize - 1 - (side - x);
@@ -83,11 +89,16 @@ function collision() {
 	var isBottom = movement.verticalSpeed > 0;
 	var side = isBottom ? bbox_bottom : bbox_top;
 	
-	// check left and right of bottom/top
+	// check left and right of bottom/top and where they're going to be
 	var testLeft = tilemap_get_at_pixel(global.map, bbox_left, side + movement.verticalSpeed);
 	var testRight = tilemap_get_at_pixel(global.map, bbox_right, side + movement.verticalSpeed);
 	
-	if (testLeft != VOID || testRight != VOID) {
+	// check left and right bottom for platforms
+	var testBottomLeft = tilemap_get_at_pixel(global.map, bbox_left, bbox_bottom);
+	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, bbox_bottom);
+	
+	if (testLeft != VOID && (((movement.verticalSpeed > 0 || testLeft != PLATFORM)) && testBottomLeft != PLATFORM) || (testLeft == SOLID && testBottomLeft == PLATFORM)) ||
+	(testRight != VOID && (((movement.verticalSpeed > 0 || testRight != PLATFORM)) && (testBottomRight != PLATFORM) || (testRight == SOLID && testBottomRight == PLATFORM))) {
 		// collision found
 		if (isBottom) {
 			y = y - (y mod global.tileSize) + global.tileSize - 1 - (side - y);
@@ -146,8 +157,17 @@ function jumped() {
 
 function on_ground() {
 	var side = bbox_bottom;
-	var testBottomLeft = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
-	var testBottomRight = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
-	
-	return(testBottomLeft == SOLID || testBottomRight == SOLID);
+	var testBottomLeftSurface = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
+	var testBottomRightSurface = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
+	var testBottomLeftBelow = tilemap_get_at_pixel(global.map, bbox_left, side);
+	var testBottomRightBelow = tilemap_get_at_pixel(global.map, bbox_right, side);
+
+	return(
+		(testBottomLeftSurface == SOLID || testBottomLeftSurface == PLATFORM) &&
+		(testBottomLeftBelow != SOLID && testBottomLeftBelow != PLATFORM) ||
+		(testBottomLeftSurface == SOLID || testBottomLeftBelow == PLATFORM) ||
+		(testBottomRightSurface == SOLID || testBottomRightSurface == PLATFORM) &&
+		(testBottomRightBelow != SOLID && testBottomRightBelow != PLATFORM) ||
+		(testBottomRightSurface == SOLID && testBottomRightBelow == PLATFORM)
+	);
 }
