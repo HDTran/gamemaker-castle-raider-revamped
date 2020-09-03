@@ -12,6 +12,7 @@
     {"id":{"name":"o_camera","path":"objects/o_camera/o_camera.yy",},"order":5,},
     {"id":{"name":"s_player_crouch","path":"sprites/s_player_crouch/s_player_crouch.yy",},"order":5,},
     {"id":{"name":"s_player_walk","path":"sprites/s_player_walk/s_player_walk.yy",},"order":8,},
+    {"id":{"name":"s_bkgd_moon","path":"sprites/s_bkgd_moon/s_bkgd_moon.yy",},"order":0,},
     {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":1,},
     {"id":{"name":"s_player_crouch_block","path":"sprites/s_player_crouch_block/s_player_crouch_block.yy",},"order":4,},
     {"id":{"name":"rm_00","path":"rooms/rm_00/rm_00.yy",},"order":1,},
@@ -61,6 +62,7 @@
     {"folderPath":"folders/Sprites/Player.yy","order":0,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Tiles.yy","order":1,"resourceVersion":"1.0","name":"Tiles","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/Player.yy","order":4,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Backgrounds.yy","order":3,"resourceVersion":"1.0","name":"Backgrounds","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},
