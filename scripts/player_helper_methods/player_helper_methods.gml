@@ -109,7 +109,21 @@ function get_input() {
 		jump: keyboard_check_pressed(vk_space),
 		jumpHeld: keyboard_check(vk_space),
 		block: keyboard_check(ord("Z")),
-	}	
+	}
+	
+	// controller input
+	var deviceIndex = 0; // first gamepad (of 4)
+	var deadzone = 0.3;
+	if (gamepad_is_connected(deviceIndex)) {
+		input.left = gamepad_axis_value(deviceIndex, gp_axislh) < -deadzone || gamepad_button_check_pressed(deviceIndex, gp_padl) || input.left;
+		input.right = gamepad_axis_value(deviceIndex, gp_axislh) > deadzone || gamepad_button_check_pressed(deviceIndex, gp_padr) ||input.right;
+		input.up = gamepad_axis_value(deviceIndex, gp_axislv) < -deadzone || gamepad_button_check_pressed(deviceIndex, gp_padu) ||input.up;
+		input.down = gamepad_axis_value(deviceIndex, gp_axislv) > deadzone || gamepad_button_check_pressed(deviceIndex, gp_padd) ||input.down;
+		input.attack = gamepad_button_check_pressed(deviceIndex, gp_face2) || input.attack;
+		input.jump = gamepad_button_check_pressed(deviceIndex, gp_face1) || input.jump;
+		input.jumpHeld = gamepad_button_check(deviceIndex, gp_face1) || input.jumpHeld;
+		input.block = gamepad_button_check(deviceIndex, gp_shoulderr) || input.block;
+	}
 }
 
 function jump_dust() {
