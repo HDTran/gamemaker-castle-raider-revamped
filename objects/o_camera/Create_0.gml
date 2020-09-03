@@ -13,7 +13,7 @@ moveToX = x;
 moveToY = y;
 
 // how fast the camera pans
-cameraPanSpeedInitial = 0.015; // lower is slower pan
+cameraPanSpeedInitial = 0.15; // lower is slower pan
 cameraPanSpeed = 1; // 1 instantly warps to player
 
 // reset camera to default pan speed
