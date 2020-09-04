@@ -3,7 +3,8 @@ enum FROG_STATES {
 	IDLE,
 	JUMP_START,
 	JUMP,
-	JUMP_LAND
+	JUMP_LAND,
+	ATTACK
 };
 
 movement = {
@@ -24,6 +25,10 @@ movement.jumpTimer = movement.jumpTimerInitial;
 
 facing = choose(-1, 1);
 
+// actions
+canAttack = true;
+attackDelay = room_speed;
+
 // breathing
 breathTimerInitial = random_range(room_speed * 1.75, room_speed * 2.25);
 breathTimer = breathTimerInitial;
@@ -35,8 +40,10 @@ stepFunctions[FROG_STATES.IDLE] = frog_idle_step;
 stepFunctions[FROG_STATES.JUMP_START] = frog_jump_start_step;
 stepFunctions[FROG_STATES.JUMP] = frog_jump_step;
 stepFunctions[FROG_STATES.JUMP_LAND] = frog_jump_land_step;
+stepFunctions[FROG_STATES.ATTACK] = frog_attack_step;
 
 sprites[FROG_STATES.IDLE] = s_frog_idle;
 sprites[FROG_STATES.JUMP_START] = s_frog_jump_start;
 sprites[FROG_STATES.JUMP] = s_frog_jump;
 sprites[FROG_STATES.JUMP_LAND] = s_frog_jump_land;
+sprites[FROG_STATES.ATTACK] = s_frog_attack;

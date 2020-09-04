@@ -19,6 +19,7 @@
     {"id":{"name":"s_player_walk","path":"sprites/s_player_walk/s_player_walk.yy",},"order":8,},
     {"id":{"name":"s_bkgd_moon","path":"sprites/s_bkgd_moon/s_bkgd_moon.yy",},"order":0,},
     {"id":{"name":"o_game","path":"objects/o_game/o_game.yy",},"order":1,},
+    {"id":{"name":"s_frog_attack","path":"sprites/s_frog_attack/s_frog_attack.yy",},"order":15,},
     {"id":{"name":"s_player_crouch_block","path":"sprites/s_player_crouch_block/s_player_crouch_block.yy",},"order":4,},
     {"id":{"name":"rm_00","path":"rooms/rm_00/rm_00.yy",},"order":1,},
     {"id":{"name":"s_tile_collisions","path":"sprites/s_tile_collisions/s_tile_collisions.yy",},"order":0,},

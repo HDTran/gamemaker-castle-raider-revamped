@@ -1,10 +1,50 @@
+function frog_attack_step() {
+	// get inputs
+	
+	// calculate movement
+
+	// modify state
+	// attacking
+	// set tongue depth
+	depth = layer_get_depth(layer_get_id("Player")) -1;
+	
+	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
+		state = FROG_STATES.IDLE;
+		alarm[CAN_ATTACK] = attackDelay;
+		depth = layer_get_depth(layer_get_id("Enemies"));
+	}
+
+	// apply movement
+	collision();
+
+	// animations
+	frog_anim();
+}
+
 function frog_idle_step() {
 	// get inputs
 	breathing();
 	
 	// calculate movement
 	// modify state
-	if (movement.jumpTimer < 0) {
+	// attack
+	var DETECT_PLAYER_DISTANCE = 40;
+	var playerAlert = false; // player in front and within range, but the attack is not ready
+	// if player is within detected distance and we are facing player, then attack
+	// checking sign(o_player.x - x) will return whether they're facing or not
+	if ((distance_to_object(o_player) < DETECT_PLAYER_DISTANCE) && sign(o_player.x - x) == facing) {
+		if (canAttack) {
+			canAttack = false;
+			state = FROG_STATES.ATTACK;
+			image_index = 0;
+			image_speed = 1;
+		} else {
+			playerAlert = true;
+		}
+	}
+	
+	// jumping
+	if (movement.jumpTimer < 0 && !playerAlert) {
 		movement.jumpTimer = movement.jumpTimerInitial;
 		var shouldJump = random(1);
 		if (shouldJump > movement.jumpChance) {
@@ -17,14 +57,14 @@ function frog_idle_step() {
 			
 			var turned = false;
 			// look for solid one tile ahead
-			var testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom);
-			if (testTileAhead1 == SOLID) {
+			var testTileAhead = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom);
+			if (testTileAhead == SOLID) {
 				facing *= -1;
 				turned = true;
 			}
 			// look for a void one tile ahead
-			testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom + 1);
-			if (testTileAhead1 == VOID) {
+			testTileAhead = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom + 1);
+			if (testTileAhead == VOID) {
 				if (!turned) {
 					facing *= -1;
 				}
@@ -32,8 +72,8 @@ function frog_idle_step() {
 			// look for voids multiple tiles ahead
 			var TILES_AHEAD = 3;
 			for (var i = TILES_AHEAD; i > 0; i--) {
-				testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize * i, bbox_bottom + 1);
-				if (testTileAhead1 == VOID) {
+				testTileAhead = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize * i, bbox_bottom + 1);
+				if (testTileAhead == VOID) {
 					// adjust frog so that he doesn't go off edge
 					// find the furthest solid jump point
 					var tileStartX = (x + sign(facing) * global.tileSize * i) - (x + sign(facing) * global.tileSize * i) mod global.tileSize;
@@ -52,6 +92,8 @@ function frog_idle_step() {
 	}
 
 	// apply movement
+	collision();
+
 	// animations
 	frog_anim();
 }
