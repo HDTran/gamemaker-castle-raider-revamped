@@ -4,14 +4,27 @@ function frog_attack_step() {
 	// calculate movement
 
 	// modify state
+	// attack warning
+	if (image_index == 2 and !inhale) {
+		inhale = true;
+		alarm[INHALE] = inhaleTimer;
+		image_speed = 0;
+	}
+
 	// attacking
-	// set tongue depth
-	depth = layer_get_depth(layer_get_id("Player")) -1;
+	if (attack) {
+		// set tongue depth
+		depth = layer_get_depth(layer_get_id("Player")) -1;
 	
-	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
-		state = FROG_STATES.IDLE;
-		alarm[CAN_ATTACK] = attackDelay;
-		depth = layer_get_depth(layer_get_id("Enemies"));
+		if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
+			state = FROG_STATES.IDLE;
+			alarm[CAN_ATTACK] = attackDelay;
+			depth = layer_get_depth(layer_get_id("Enemies"));
+
+			// reset
+			inhale = false;
+			attack = false;
+		}
 	}
 
 	// apply movement
@@ -132,6 +145,8 @@ function frog_jump_land_step() {
 		state = FROG_STATES.IDLE;
 		image_index = 0;
 		image_speed = 0;
+		
+		canAttack = true; // reset attack just in case
 	}
 
 	// apply movement

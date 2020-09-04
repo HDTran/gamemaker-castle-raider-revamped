@@ -8,3 +8,6 @@
 
 // attack
 #macro CAN_ATTACK 0
+
+// frog
+#macro INHALE 1

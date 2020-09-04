@@ -25,9 +25,12 @@ movement.jumpTimer = movement.jumpTimerInitial;
 
 facing = choose(-1, 1);
 
-// actions
+// attacking
 canAttack = true;
 attackDelay = room_speed;
+attack = false;
+inhale = false;
+inhaleTimer = room_speed * 0.3;
 
 // breathing
 breathTimerInitial = random_range(room_speed * 1.75, room_speed * 2.25);

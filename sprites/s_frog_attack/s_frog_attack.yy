@@ -108,8 +108,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b37b8ed1-649e-44b4-a0df-2c5f4d12ac7e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Castle Raider GML2.3",
-    "path": "Castle Raider GML2.3.yyp",
+    "name": "Frog",
+    "path": "folders/Sprites/Enemies/Frog.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_frog_attack",
