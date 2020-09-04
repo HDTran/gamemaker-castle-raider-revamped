@@ -28,8 +28,17 @@ function frog_jump_step() {
 	breathing();
 	
 	// calculate movement
+	movement.horizontalSpeed = movement.walkSpeed * facing;
+	movement.verticalSpeed += global.gravity;
+
+	movement.horizontalSpeed = min(abs(movement.horizontalSpeed), movement.maxHorizontalSpeed) * facing; // limit speed
+
 	// modify state
+
+
 	// apply movement
+	collision();
+
 	// animations
 	frog_anim();
 }
@@ -49,6 +58,11 @@ function frog_jump_start_step() {
 	// get inputs	
 	// calculate movement
 	// modify state
+	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
+		state = FROG_STATES.JUMP;
+		movement.verticalSpeed = movement.jumpSpeed;
+	}
+
 	// apply movement
 	collision();
 	

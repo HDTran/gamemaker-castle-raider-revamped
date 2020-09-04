@@ -20,9 +20,12 @@ function frog_anim() {
 	sprite_index = sprites[state];
 	//mask_index = masks[state];
 	
-	//switch (state) {
-	//	case PLAYER_STATES.JUMP:
-	//		image_index = movement.verticalSpeed < 0 ? 0 : 1;
-	//	break;
-	//}
+	switch (state) {
+		case FROG_STATES.JUMP:
+			if (image_index >= 2) {
+				image_speed = 0;
+				image_index = movement.verticalSpeed < 0 ? 2 : 3;
+			}
+		break;
+	}
 }
