@@ -13,6 +13,39 @@ function frog_idle_step() {
 			// reset breath values
 			image_index = 0;
 			image_speed = 1;
+			movement.maxHorizontalSpeed = movement.maxHorizontalSpeedInitial;
+			
+			var turned = false;
+			// look for solid one tile ahead
+			var testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom);
+			if (testTileAhead1 == SOLID) {
+				facing *= -1;
+				turned = true;
+			}
+			// look for a void one tile ahead
+			testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize, bbox_bottom + 1);
+			if (testTileAhead1 == VOID) {
+				if (!turned) {
+					facing *= -1;
+				}
+			}
+			// look for voids multiple tiles ahead
+			var TILES_AHEAD = 3;
+			for (var i = TILES_AHEAD; i > 0; i--) {
+				testTileAhead1 = tilemap_get_at_pixel(global.map, x + sign(facing) * global.tileSize * i, bbox_bottom + 1);
+				if (testTileAhead1 == VOID) {
+					// adjust frog so that he doesn't go off edge
+					// find the furthest solid jump point
+					var tileStartX = (x + sign(facing) * global.tileSize * i) - (x + sign(facing) * global.tileSize * i) mod global.tileSize;
+					// half of mask
+					var halfMask = (bbox_right + 1 - bbox_left)/2;
+					var target = facing ? tileStartX - halfMask : tileStartX + halfMask + global.tileSize; // target area is based on adjustment to ledge + mask + facing
+					// adjust maxHorizontalSpeed to land at target
+					// speed = distance/time
+					var STEPS_IN_AIR = 48; // how long is frog in air? 48 steps
+					movement.maxHorizontalSpeed = abs(target - x)/STEPS_IN_AIR;
+				}
+			}
 		}
 	} else {
 		movement.jumpTimer--;
@@ -81,4 +114,3 @@ function frog_jump_start_step() {
 	// animations
 	frog_anim();
 }
-

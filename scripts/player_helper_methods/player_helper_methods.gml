@@ -91,20 +91,3 @@ function jumped() {
 		jump_dust();
 	}
 }
-
-function on_ground() {
-	var side = bbox_bottom;
-	var testBottomLeftSurface = tilemap_get_at_pixel(global.map, bbox_left, side + 1);
-	var testBottomRightSurface = tilemap_get_at_pixel(global.map, bbox_right, side + 1);
-	var testBottomLeftBelow = tilemap_get_at_pixel(global.map, bbox_left, side);
-	var testBottomRightBelow = tilemap_get_at_pixel(global.map, bbox_right, side);
-
-	return(
-		(testBottomLeftSurface == SOLID || testBottomLeftSurface == PLATFORM) &&
-		(testBottomLeftBelow != SOLID && testBottomLeftBelow != PLATFORM) ||
-		(testBottomLeftSurface == SOLID || testBottomLeftBelow == PLATFORM) ||
-		(testBottomRightSurface == SOLID || testBottomRightSurface == PLATFORM) &&
-		(testBottomRightBelow != SOLID && testBottomRightBelow != PLATFORM) ||
-		(testBottomRightSurface == SOLID && testBottomRightBelow == PLATFORM)
-	);
-}

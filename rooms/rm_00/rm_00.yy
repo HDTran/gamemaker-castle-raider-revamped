@@ -51,6 +51,11 @@
       ],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":127.0,"resourceVersion":"1.0","name":"inst_267BEFDD","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":127.0,"resourceVersion":"1.0","name":"inst_4D9EFA75","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":472.0,"y":159.0,"resourceVersion":"1.0","name":"inst_75A9D62A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":501.0,"y":255.0,"resourceVersion":"1.0","name":"inst_1720BE8F","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":624.0,"y":191.0,"resourceVersion":"1.0","name":"inst_6504C306","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":654.0,"y":319.0,"resourceVersion":"1.0","name":"inst_7323C6C9","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":500,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Enemies","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"t_castle","path":"tilesets/t_castle/t_castle.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":45,"SerialiseHeight":13,"TileSerialiseData":[
 2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,2147483648,
@@ -136,6 +141,11 @@
   "instanceCreationOrder": [
     {"name":"inst_5D8EE0CB","path":"rooms/rm_00/rm_00.yy",},
     {"name":"inst_267BEFDD","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_4D9EFA75","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_75A9D62A","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_1720BE8F","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_6504C306","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_7323C6C9","path":"rooms/rm_00/rm_00.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
