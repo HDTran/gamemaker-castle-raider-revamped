@@ -11,3 +11,4 @@
 
 // frog
 #macro INHALE 1
+#macro HURT 2

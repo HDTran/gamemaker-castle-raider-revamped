@@ -1,4 +1,6 @@
 /// @description Init
+event_inherited(); // run parent code
+
 enum FROG_STATES {
 	IDLE,
 	JUMP_START,
