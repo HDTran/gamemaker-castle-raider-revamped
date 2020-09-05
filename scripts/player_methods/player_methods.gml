@@ -14,6 +14,15 @@ function player_attack_step() {
 		jumped();
 		state = PLAYER_STATES.ATTACK; // restore attack state after doing jump immediately
 	}
+
+	// create hitbox
+	var startingSlashImageIndex = 1;
+	var endingSlashImageIndex = 3;
+	if (image_index >= startingSlashImageIndex && image_index <= endingSlashImageIndex) {
+		var inst = instance_create_layer(x, y, "Player", o_player_attack_hitbox);
+		inst.image_xscale = facing;
+	}
+
 	// enable smaller jumps
 	if (movement.verticalSpeed < 0 && !input.jumpHeld) {
 		movement.verticalSpeed = max(movement.verticalSpeed, movement.jumpSpeed/movement.jumpDampner);
