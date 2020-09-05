@@ -24,6 +24,10 @@ with (instance_place(x, y, o_player)) {
 			
 		// set hurt timer
 		alarm[HURT] = hurtTime;
+		
+		// change state
+		state = PLAYER_STATES.HURTING;
+		image_index = 0;
 	}
 }
 

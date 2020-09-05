@@ -14,6 +14,12 @@ function anim() {
 				sprite_index = movement.horizontalSpeed != 0 ? s_player_attack_walk : s_player_attack;
 			}
 		break;
+		case PLAYER_STATES.HURTING:
+			if (!on_ground()) {
+				sprite_index = s_player_jump;
+				image_index = movement.verticalSpeed < 0 ? 0 : 1;
+			}
+		break;
 	}
 }
 

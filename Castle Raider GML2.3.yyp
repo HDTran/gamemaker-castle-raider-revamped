@@ -15,6 +15,7 @@
     {"id":{"name":"t_castle","path":"tilesets/t_castle/t_castle.yy",},"order":1,},
     {"id":{"name":"player_methods","path":"scripts/player_methods/player_methods.yy",},"order":4,},
     {"id":{"name":"s_player_jump","path":"sprites/s_player_jump/s_player_jump.yy",},"order":7,},
+    {"id":{"name":"s_player_hurting","path":"sprites/s_player_hurting/s_player_hurting.yy",},"order":14,},
     {"id":{"name":"t_collisions","path":"tilesets/t_collisions/t_collisions.yy",},"order":0,},
     {"id":{"name":"helper_functions","path":"scripts/helper_functions/helper_functions.yy",},"order":4,},
     {"id":{"name":"s_frog_jump_land","path":"sprites/s_frog_jump_land/s_frog_jump_land.yy",},"order":2,},
