@@ -2,6 +2,7 @@ function frog_attack_step() {
 	// get inputs
 	
 	// calculate movement
+	calc_entity_movement();
 
 	// modify state
 	// attack warning
@@ -39,6 +40,8 @@ function frog_idle_step() {
 	breathing();
 	
 	// calculate movement
+	calc_entity_movement();
+
 	// modify state
 	// attack
 	var DETECT_PLAYER_DISTANCE = 40;
@@ -115,9 +118,10 @@ function frog_jump_step() {
 	// get inputs
 	
 	// calculate movement
-	movement.horizontalSpeed = movement.walkSpeed * facing;
-	movement.verticalSpeed += global.gravity;
-
+	calc_entity_movement();
+	
+	// horizontal movement
+	movement.horizontalSpeed += movement.walkSpeed * facing;
 	movement.horizontalSpeed = min(abs(movement.horizontalSpeed), movement.maxHorizontalSpeed) * facing; // limit speed
 
 	// modify state

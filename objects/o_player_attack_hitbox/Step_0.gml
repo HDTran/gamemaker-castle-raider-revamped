@@ -10,6 +10,10 @@ with (o_enemy) {
 			
 				// get sign direction from hitbox to enemy
 				var dir = sign(x - other.x);
+				
+				// move away from the hitbox/player
+				var KNOCKBACK_DISTANCE = 3;
+				movement.horizontalSpeed = dir * KNOCKBACK_DISTANCE;
 			
 				// ensure objects are not at the same x
 				if (dir == 0) {
