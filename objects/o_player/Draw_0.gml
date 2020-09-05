@@ -1,5 +1,6 @@
 /// @description Draw with debug
 draw_self(); // standard draw
+draw_text(x, y, hp);
 
 // debug: show bounding box
 //draw_set_alpha(0.3);

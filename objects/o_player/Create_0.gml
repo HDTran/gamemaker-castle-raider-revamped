@@ -25,6 +25,12 @@ movement = {
 
 facing = 1; // 1 is facing right, -1 is facing left
 
+// hurt
+flashCounter = 0;
+hurt = false;
+hurtTime = room_speed;
+hp = 5;
+
 input = {
 	up: 0,
 	right: 0,

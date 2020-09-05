@@ -14,6 +14,12 @@ function frog_attack_step() {
 
 	// attacking
 	if (attack) {
+		if (image_index >= 5 && image_index <= 6) {
+			// create hitbox when on these frames
+			var inst = instance_create_layer(x, y, "Enemies", o_frog_attack_hitbox);
+			inst.image_xscale = facing; // ensure hitbox faces the way the frog that created is facing
+		}
+
 		// set tongue depth
 		depth = layer_get_depth(layer_get_id("Player")) -1;
 	
