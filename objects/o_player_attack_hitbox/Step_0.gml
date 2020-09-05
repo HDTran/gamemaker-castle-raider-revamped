@@ -26,6 +26,14 @@ with (o_enemy) {
 			
 				// set hurt timer
 				alarm[HURT] = hurtTime;
+
+				var inst = instance_create_depth(x, (bbox_top + bbox_bottom)/2, depth -1, o_sword_hit);
+				inst.image_xscale = o_player.facing;
+				if (hp <= 0) {
+					var inst = instance_create_depth(x, (bbox_top + bbox_bottom)/2, depth -1, o_sword_hit);
+					inst.image_xscale = o_player.facing;
+					inst.sprite_index = s_sword_hit2;
+				}
 			}
 		}
 	}
