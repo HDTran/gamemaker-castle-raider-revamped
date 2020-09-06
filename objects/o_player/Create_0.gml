@@ -27,6 +27,9 @@ movement = {
 
 facing = 1; // 1 is facing right, -1 is facing left
 
+// gems
+gems = 0;
+
 // hurt
 flashCounter = 0;
 hurt = false;

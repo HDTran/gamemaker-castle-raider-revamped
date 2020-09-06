@@ -6,6 +6,7 @@
     {"id":{"name":"s_sword_hit2","path":"sprites/s_sword_hit2/s_sword_hit2.yy",},"order":13,},
     {"id":{"name":"s_player_attack_hitbox","path":"sprites/s_player_attack_hitbox/s_player_attack_hitbox.yy",},"order":11,},
     {"id":{"name":"o_enemy","path":"objects/o_enemy/o_enemy.yy",},"order":2,},
+    {"id":{"name":"fnt_stats","path":"fonts/fnt_stats/fnt_stats.yy",},"order":0,},
     {"id":{"name":"enemy_helper_methods","path":"scripts/enemy_helper_methods/enemy_helper_methods.yy",},"order":3,},
     {"id":{"name":"o_player_dust_jump","path":"objects/o_player_dust_jump/o_player_dust_jump.yy",},"order":1,},
     {"id":{"name":"frog_methods","path":"scripts/frog_methods/frog_methods.yy",},"order":1,},
@@ -40,6 +41,7 @@
     {"id":{"name":"s_tile_castle","path":"sprites/s_tile_castle/s_tile_castle.yy",},"order":1,},
     {"id":{"name":"o_player","path":"objects/o_player/o_player.yy",},"order":0,},
     {"id":{"name":"s_frog_jump_start","path":"sprites/s_frog_jump_start/s_frog_jump_start.yy",},"order":3,},
+    {"id":{"name":"s_gem_gui","path":"sprites/s_gem_gui/s_gem_gui.yy",},"order":0,},
     {"id":{"name":"o_sword_hit","path":"objects/o_sword_hit/o_sword_hit.yy",},"order":6,},
     {"id":{"name":"s_player_dust_jump","path":"sprites/s_player_dust_jump/s_player_dust_jump.yy",},"order":9,},
     {"id":{"name":"s_player_block","path":"sprites/s_player_block/s_player_block.yy",},"order":3,},
@@ -91,6 +93,7 @@
     {"folderPath":"folders/Sprites/Enemies/Frog.yy","order":4,"resourceVersion":"1.0","name":"Frog","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Objects.yy","order":4,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/Objects.yy","order":7,"resourceVersion":"1.0","name":"Objects","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/GUI.yy","order":5,"resourceVersion":"1.0","name":"GUI","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":461609314234257646,"resourceVersion":"1.0","name":"audiogroup_default","resourceType":"GMAudioGroup",},

@@ -3,3 +3,6 @@
 // get tilemap
 global.tileSize = 32;
 global.gravity = 0.25;
+
+// set gui size
+display_set_gui_size(720, 360);
