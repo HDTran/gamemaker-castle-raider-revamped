@@ -108,6 +108,33 @@ function player_hurting_step() {
 	anim(); // apply animations
 };
 
+function player_knockback_step() {
+	get_input();
+	
+	// calculate movement
+	movement.verticalSpeed += global.gravity;
+
+	// drag
+	movement.horizontalSpeed = lerp(movement.horizontalSpeed, 0, movement.drag); // reduce to 0 by drag speed
+
+	// stop if below threshold
+	if (abs(movement.horizontalSpeed) <= 0.5) { movement.horizontalSpeed = 0; }
+	
+	// check state
+	// change state after animation and no longer moving
+	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed && movement.horizontalSpeed == 0) {
+		// change state
+		if (input.block) {
+			state = input.down ? PLAYER_STATES.CROUCH_BLOCK : PLAYER_STATES.BLOCK;
+		} else {
+			state = PLAYER_STATES.IDLE;
+		}
+	}
+
+	collision(); // apply movement
+	anim(); // apply animations
+};
+
 function player_idle_step() {
 	get_input();
 	calc_movement();
