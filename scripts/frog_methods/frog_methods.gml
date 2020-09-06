@@ -1,4 +1,7 @@
 function frog_attack_step() {
+	// check health
+	checkEnemyHP();
+
 	// get inputs
 	
 	// calculate movement
@@ -42,6 +45,9 @@ function frog_attack_step() {
 }
 
 function frog_idle_step() {
+	// check health
+	checkEnemyHP();
+
 	// get inputs
 	breathing();
 	
@@ -121,6 +127,9 @@ function frog_idle_step() {
 }
 
 function frog_jump_step() {
+	// check health
+	checkEnemyHP();
+
 	// get inputs
 	
 	// calculate movement
@@ -146,6 +155,9 @@ function frog_jump_step() {
 }
 
 function frog_jump_land_step() {
+	// check health
+	checkEnemyHP();
+
 	// get inputs
 	
 	// calculate movement
@@ -167,8 +179,13 @@ function frog_jump_land_step() {
 }
 
 function frog_jump_start_step() {
-	// get inputs	
+	// check health
+	checkEnemyHP();
+
+	// get inputs
+
 	// calculate movement
+
 	// modify state
 	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
 		state = FROG_STATES.JUMP;
