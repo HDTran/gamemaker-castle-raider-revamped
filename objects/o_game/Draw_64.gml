@@ -18,3 +18,11 @@ draw_set_color(c_black);
 draw_text(xStart + textX + 1, yStart + textY + 1, o_player.gems);
 draw_set_color(color);
 draw_text(xStart + textX, yStart + textY, o_player.gems);
+
+// hp bar
+xStart = 48;
+yStart = 25;
+draw_sprite(s_hp_bar, 1, xStart, yStart);
+draw_sprite_ext(s_hp_bar, 2, xStart, yStart, o_player.hp/o_player.maxHP, 1, 0, c_white, image_alpha);
+draw_sprite(s_hp_bar, 0, xStart, yStart);
+
