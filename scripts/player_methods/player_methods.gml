@@ -156,6 +156,10 @@ function player_jump_step() {
 	
 	// check state
 	if (on_ground()) {
+		// apply squash
+		scale_x = scale_max;
+		scale_y = scale_min;
+		
 		state = movement.horizontalSpeed != 0 ? PLAYER_STATES.WALK : PLAYER_STATES.IDLE;
 		
 		// create dust if landing

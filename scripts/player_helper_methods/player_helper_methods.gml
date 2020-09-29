@@ -51,14 +51,18 @@ function calc_movement() {
 
 	// limit speed
 	movement.horizontalSpeed = min(abs(movement.horizontalSpeed), movement.maxHorizontalSpeed) * facing;
+	
+	// stop stretch
+	scale_x = lerp(scale_x, 1, scale_decay);
+	scale_y = lerp(scale_y, 1, scale_decay);
 }
 
 function get_input() {
 	input = {
-		up: keyboard_check(vk_up),
-		right: keyboard_check(vk_right),
-		down: keyboard_check(vk_down),
-		left: keyboard_check(vk_left),
+		up: keyboard_check(vk_up) || keyboard_check(ord("W")),
+		right: keyboard_check(vk_right) || keyboard_check(ord("D")),
+		down: keyboard_check(vk_down) || keyboard_check(ord("S")),
+		left: keyboard_check(vk_left) || keyboard_check(ord("A")),
 		attack: keyboard_check_pressed(vk_shift),
 		jump: keyboard_check_pressed(vk_space),
 		jumpHeld: keyboard_check(vk_space),
@@ -91,6 +95,9 @@ function jumped() {
 	}
 	
 	if (movement.jumps > 0) {
+		scale_x = scale_min;
+		scale_y = scale_max;
+		movement.verticalSpeedDecimal = 0;
 		state = PLAYER_STATES.JUMP;
 		movement.verticalSpeed = movement.jumpSpeed;
 		movement.jumps -= 1;
