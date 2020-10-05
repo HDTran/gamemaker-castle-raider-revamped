@@ -67,6 +67,7 @@ function get_input() {
 		jump: keyboard_check_pressed(vk_space),
 		jumpHeld: keyboard_check(vk_space),
 		block: keyboard_check(ord("Z")),
+		action: keyboard_check(ord("X")),
 	}
 
 	// controller input
@@ -81,6 +82,7 @@ function get_input() {
 		input.jump = gamepad_button_check_pressed(deviceIndex, gp_face1) || input.jump;
 		input.jumpHeld = gamepad_button_check(deviceIndex, gp_face1) || input.jumpHeld;
 		input.block = gamepad_button_check(deviceIndex, gp_shoulderr) || input.block;
+		input.action = gamepad_button_check(deviceIndex, gp_face3) || input.action;
 	}
 }
 
