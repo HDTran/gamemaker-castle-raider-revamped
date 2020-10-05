@@ -57,6 +57,16 @@ function calc_movement() {
 	scale_y = lerp(scale_y, 1, scale_decay);
 }
 
+function check_player_hp() {
+	if (hp <= 0) {
+		state = PLAYER_STATES.DIE;
+		image_index = 0;
+		image_speed = 1;
+		scale_x = 1;
+		scale_y = 1;
+	}
+}
+
 function get_input() {
 	input = {
 		up: keyboard_check(vk_up) || keyboard_check(ord("W")),

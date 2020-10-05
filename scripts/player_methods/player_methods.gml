@@ -29,6 +29,7 @@ function player_attack_step() {
 	}
 	
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 }
 
@@ -44,6 +45,7 @@ function player_block_step() {
 		jumped();
 	}
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -59,6 +61,7 @@ function player_crouch_step() {
 		jumped();
 	}
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -73,6 +76,50 @@ function player_crouch_block_step() {
 	if (input.jump) {
 		jumped();
 	}
+	collision(); // apply movement
+	check_player_hp();
+	anim(); // apply animations
+};
+
+function player_die_step() {	
+	// calculate movement
+	movement.verticalSpeed += global.gravity;
+
+	// drag
+	movement.horizontalSpeed = lerp(movement.horizontalSpeed, 0, movement.drag); // reduce to 0 by drag speed
+
+	// stop if below threshold
+	if (abs(movement.horizontalSpeed) <= 0.5) { movement.horizontalSpeed = 0; }
+	
+	// check state
+	if (image_index >= image_number - 1) {
+		image_speed = 0;
+		get_input();
+		if (input.jump || input.attack) {
+			room_restart();
+			// reset player
+			x = room_start_pos_x;
+			y = room_start_pos_y;
+			facing = room_start_facing;
+			state = PLAYER_STATES.IDLE;
+			
+			// reset speed after death pause
+			image_speed = 1;
+			
+			// reset hp
+			hp = maxHP;
+			
+			// allow instant camera panning
+			with(o_camera) {
+				// enable instant panning
+				cameraPanSpeed = 1;
+				
+				// reset camera pan speed
+				alarm[CAMERA_RESET] = 3;
+			}
+		}
+	}
+
 	collision(); // apply movement
 	anim(); // apply animations
 };
@@ -105,6 +152,7 @@ function player_hurting_step() {
 	}
 
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -132,6 +180,7 @@ function player_knockback_step() {
 	}
 
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -146,7 +195,9 @@ function player_idle_step() {
 	if (input.jump) {
 		jumped();
 	}
+
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -179,6 +230,7 @@ function player_jump_step() {
 	}
 	
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };
 
@@ -206,5 +258,6 @@ function player_walk_step() {
 	}
 	
 	collision(); // apply movement
+	check_player_hp();
 	anim(); // apply animations
 };

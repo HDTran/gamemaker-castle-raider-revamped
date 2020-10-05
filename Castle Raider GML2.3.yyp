@@ -14,6 +14,7 @@
     {"id":{"name":"o_player_dust_land","path":"objects/o_player_dust_land/o_player_dust_land.yy",},"order":2,},
     {"id":{"name":"o_frog_attack_hitbox","path":"objects/o_frog_attack_hitbox/o_frog_attack_hitbox.yy",},"order":3,},
     {"id":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"order":0,},
+    {"id":{"name":"s_player_die","path":"sprites/s_player_die/s_player_die.yy",},"order":16,},
     {"id":{"name":"t_castle","path":"tilesets/t_castle/t_castle.yy",},"order":1,},
     {"id":{"name":"player_methods","path":"scripts/player_methods/player_methods.yy",},"order":4,},
     {"id":{"name":"s_player_jump","path":"sprites/s_player_jump/s_player_jump.yy",},"order":7,},

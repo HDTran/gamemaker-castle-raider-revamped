@@ -8,7 +8,8 @@ enum PLAYER_STATES {
 	CROUCH,
 	CROUCH_BLOCK,
 	HURTING,
-	KNOCKBACK
+	KNOCKBACK,
+	DIE
 };
 
 movement = {
@@ -74,6 +75,7 @@ stepFunctions[PLAYER_STATES.CROUCH] = player_crouch_step;
 stepFunctions[PLAYER_STATES.CROUCH_BLOCK] = player_crouch_block_step;
 stepFunctions[PLAYER_STATES.HURTING] = player_hurting_step;
 stepFunctions[PLAYER_STATES.KNOCKBACK] = player_knockback_step;
+stepFunctions[PLAYER_STATES.DIE] = player_die_step;
 
 sprites[PLAYER_STATES.IDLE] = s_player_idle;
 sprites[PLAYER_STATES.WALK] = s_player_walk;
@@ -84,6 +86,7 @@ sprites[PLAYER_STATES.CROUCH] = s_player_crouch;
 sprites[PLAYER_STATES.CROUCH_BLOCK] = s_player_crouch_block;
 sprites[PLAYER_STATES.HURTING] = s_player_hurting;
 sprites[PLAYER_STATES.KNOCKBACK] = s_player_knockback;
+sprites[PLAYER_STATES.DIE] = s_player_die;
 
 masks[PLAYER_STATES.IDLE] = s_player_idle;
 masks[PLAYER_STATES.WALK] = s_player_idle;
@@ -94,3 +97,4 @@ masks[PLAYER_STATES.CROUCH] = s_player_crouch;
 masks[PLAYER_STATES.CROUCH_BLOCK] = s_player_crouch;
 masks[PLAYER_STATES.HURTING] = s_player_idle;
 masks[PLAYER_STATES.KNOCKBACK] = s_player_knockback;
+masks[PLAYER_STATES.DIE] = s_player_die;

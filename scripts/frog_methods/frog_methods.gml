@@ -61,13 +61,15 @@ function frog_idle_step() {
 	// if player is within detected distance and we are facing player, then attack
 	// checking sign(o_player.x - x) will return whether they're facing or not
 	if ((distance_to_object(o_player) < DETECT_PLAYER_DISTANCE) && sign(o_player.x - x) == facing) {
-		if (canAttack) {
-			canAttack = false;
-			state = FROG_STATES.ATTACK;
-			image_index = 0;
-			image_speed = 1;
-		} else {
-			playerAlert = true;
+		if (o_player.hp > 0) {
+			if (canAttack) {
+				canAttack = false;
+				state = FROG_STATES.ATTACK;
+				image_index = 0;
+				image_speed = 1;
+			} else {
+				playerAlert = true;
+			}
 		}
 	}
 	

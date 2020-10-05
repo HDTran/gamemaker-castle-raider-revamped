@@ -28,7 +28,7 @@ function checkEnemyHP() {
 function process_enemy_attack(hurtKnockback, blockKnockback) {
 	hurtKnockback = typeof(hurtKnockback) == "undefined" ? 4 : hurtKnockback;
 	blockKnockback = typeof(blockKnockback) == "undefined" ? 2.5 : blockKnockback;
-	if (!hurt) {
+	if (o_player.hp > 0 && !hurt) {
 		if (!input.block || (input.block && sign(x - other.x) == facing)) {
 			hurt = true;
 
