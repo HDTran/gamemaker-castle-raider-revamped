@@ -11,12 +11,14 @@ if (col = c_black) {
 			intensity = 0.2;
 			radius = 27;
 			col = make_color_rgb(220, 134, 59);
+			flickering = false;
 		break;
 		case 2:
 			// chest
 			intensity = 0.25;
 			radius = 40;
 			col = c_red;
+			flickering = false;
 		break;
 		case 3:
 			// water

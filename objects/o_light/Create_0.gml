@@ -2,6 +2,7 @@
 intensity = 1;
 radius = 1;
 col = c_black;
+flickering = true;
 
 // circle or ellipse
 circle = true;
