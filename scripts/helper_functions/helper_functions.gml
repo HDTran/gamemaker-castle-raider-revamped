@@ -67,6 +67,11 @@ function collision() {
 			y = y - (y mod global.tileSize) - (side - y);
 		}
 		movement.verticalSpeed = 0;
+		
+		// death tile check
+		if (testLeft == DEATH || testRight == DEATH || y > room_height) {
+			hp = 0;
+		}
 	}
 	y += movement.verticalSpeed;
 }
