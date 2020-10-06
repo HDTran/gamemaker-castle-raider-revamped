@@ -5,6 +5,7 @@
 
 // camera
 #macro CAMERA_RESET 0
+#macro SCREEN_SHAKE_TIME 1
 
 // attack
 #macro CAN_ATTACK 0

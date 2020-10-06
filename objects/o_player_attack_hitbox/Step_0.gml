@@ -30,6 +30,8 @@ with (o_enemy) {
 			
 				// set hurt timer
 				alarm[HURT] = hurtTime;
+				
+				scr_screen_shake(.1, 1.5);
 
 				var inst = instance_create_depth(x, (bbox_top + bbox_bottom)/2, depth -1, o_sword_hit);
 				inst.image_xscale = o_player.facing;

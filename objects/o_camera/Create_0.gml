@@ -19,5 +19,10 @@ cameraPanSpeed = 1; // 1 instantly warps to player
 // reset camera to default pan speed
 alarm[CAMERA_RESET] = 3; // alarm sets my milestones to actual game projects
 
+// screen shake
+screen_shake = false;
+screen_shake_amount_initial = 3;
+screen_shake_amount = screen_shake_amount_initial;
+
 // move to main room
 room_goto_next();

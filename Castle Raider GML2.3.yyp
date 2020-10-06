@@ -12,6 +12,7 @@
     {"id":{"name":"frog_methods","path":"scripts/frog_methods/frog_methods.yy",},"order":1,},
     {"id":{"name":"s_gem","path":"sprites/s_gem/s_gem.yy",},"order":0,},
     {"id":{"name":"o_player_dust_land","path":"objects/o_player_dust_land/o_player_dust_land.yy",},"order":2,},
+    {"id":{"name":"camera_functions","path":"scripts/camera_functions/camera_functions.yy",},"order":5,},
     {"id":{"name":"o_frog_attack_hitbox","path":"objects/o_frog_attack_hitbox/o_frog_attack_hitbox.yy",},"order":3,},
     {"id":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"order":0,},
     {"id":{"name":"s_player_die","path":"sprites/s_player_die/s_player_die.yy",},"order":16,},

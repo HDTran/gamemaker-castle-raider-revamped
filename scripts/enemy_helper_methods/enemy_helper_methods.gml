@@ -20,6 +20,7 @@ function checkEnemyHP() {
 				}
 			}
 		}
+		scr_screen_shake(.15, -1);
 		instance_destroy();
 	}
 }
@@ -55,6 +56,9 @@ function process_enemy_attack(hurtKnockback, blockKnockback) {
 			// change state
 			state = PLAYER_STATES.HURTING;
 			image_index = 0;
+			
+			// screen shake
+			scr_screen_shake(.125, -1);
 		} else {
 			// is blocking damage
 			if (state != PLAYER_STATES.KNOCKBACK) {
@@ -67,6 +71,8 @@ function process_enemy_attack(hurtKnockback, blockKnockback) {
 				
 				// move player away from the attack
 				movement.horizontalSpeed = sign(x - other.x) * blockKnockback;
+				
+				scr_screen_shake(.125, -1);
 			}
 		}
 	}	
