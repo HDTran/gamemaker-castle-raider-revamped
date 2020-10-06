@@ -26,5 +26,18 @@ if (col = c_black) {
 			radius = 20;
 			col = c_aqua;
 		break;
+		case 4:
+			// gems;
+			intensity = 0.2;
+			radius = 15;
+			flickering = false;
+			switch (col_index) {
+				case 0: col = c_lime; break;
+				case 1: col = c_yellow; break;
+				case 2: col = c_aqua; break;
+				case 3: col = c_purple; break;
+				case 4: col = c_red; break;
+			}
+		break;
 	}
 }

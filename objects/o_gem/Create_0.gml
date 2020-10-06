@@ -18,3 +18,11 @@ image_index = irandom(image_number - 1);
 
 hasBounced = false; // has bounce happened
 canPickup = false; // can it pickup yet, we want it after bouncing
+
+// enable light
+var inst = instance_create_layer(x, y, "Light", o_light);
+light_id = inst.id;
+inst.type = 4;
+
+// get gem color
+inst.col_index = image_index;
