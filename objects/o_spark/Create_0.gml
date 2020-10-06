@@ -21,3 +21,6 @@ yp = y;
 // xpreviousprevious
 xpp = xprevious;
 ypp = yprevious;
+
+// lighting
+intensity = 20;
