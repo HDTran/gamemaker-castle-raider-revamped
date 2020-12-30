@@ -5,6 +5,11 @@ var OUTSIDE_ROOM = -1;
 movement.horizontalSpeed = movement.walkSpeed * facing;
 image_xscale = sign(movement.horizontalSpeed);
 
+// stop if dead
+if (die) {
+	movement.horizontalSpeed = 0; // stop the arrow on hit of player
+}
+
 var test1 = 0, test2 = 0;
 
 // destroy at wall if moved more than 1 tile (so that it can start inside a tile)
