@@ -14,6 +14,11 @@ if (on_screen(global.tileSize)) {
 		// create arrow
 		var inst = instance_create_layer(x, y + ypos, "Arrow_shoot", o_arrow);
 		inst.facing = facing; // facing the same as spawner
+		
+		// create spark
+		var side = facing ? bbox_right : bbox_left;
+		var inst = instance_create_layer(side, y + ypos, "Arrow_shoot", o_arrow_spark);
+		inst.image_xscale = facing;
 	} else {
 		fire_delay = fire_delay - 1;
 		if (fire_delay <= 0) {

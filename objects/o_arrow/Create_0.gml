@@ -12,3 +12,6 @@ image_speed = 0; // stay on first frame
 
 // destroy object
 die = false;
+
+// change the object's layer after a set time
+alarm[LAYER_CHANGE] = room_speed/7;
