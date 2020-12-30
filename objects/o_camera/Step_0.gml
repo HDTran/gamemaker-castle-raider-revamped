@@ -23,6 +23,12 @@ if (screen_shake) {
 
 camera_set_view_pos(camera, xx, yy);
 
+// camera variables
+global.cx = camera_get_view_x(camera);
+global.cy = camera_get_view_y(camera);
+global.cw = camera_get_view_width(camera);
+global.ch = camera_get_view_height(camera);
+
 // background parallax scrolling
 var layerId = layer_get_id("Background");
 layer_x(layerId, lerp(0, camera_get_view_x(view_camera[0]), 0.7));

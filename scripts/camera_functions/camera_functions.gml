@@ -13,3 +13,15 @@ function scr_screen_shake(_time, _amount) {
 		screen_shake_amount = _amount;
 	}
 }
+
+/// @func	on_screen(_buffer);
+/// @desc Is the object on the screen
+/// @param {Object} _buffer Padding buffer of the camera
+function on_screen(_buffer) {
+	var left = global.cx - _buffer;
+	var right = global.cx + global.cw + _buffer;
+	var top = global.cy - _buffer;
+	var bottom = global.cy + global.ch + _buffer;
+	
+	return (x > left && x < right && y > top && y < bottom);
+}
