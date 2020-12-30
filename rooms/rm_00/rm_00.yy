@@ -82,6 +82,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":501.0,"y":255.0,"resourceVersion":"1.0","name":"inst_1720BE8F","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":624.0,"y":191.0,"resourceVersion":"1.0","name":"inst_6504C306","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"o_frog","path":"objects/o_frog/o_frog.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":654.0,"y":319.0,"resourceVersion":"1.0","name":"inst_7323C6C9","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":64.0,"resourceVersion":"1.0","name":"inst_7F97709D","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":800,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[
         {"instances":[],"visible":true,"depth":900,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Gems","tags":[],"resourceType":"GMRInstanceLayer",},
         {"instances":[
@@ -199,6 +200,7 @@
     {"name":"inst_3CE7AEC3","path":"rooms/rm_00/rm_00.yy",},
     {"name":"inst_D30B615","path":"rooms/rm_00/rm_00.yy",},
     {"name":"inst_7BF19AC9","path":"rooms/rm_00/rm_00.yy",},
+    {"name":"inst_7F97709D","path":"rooms/rm_00/rm_00.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
