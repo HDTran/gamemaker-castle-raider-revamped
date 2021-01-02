@@ -1,2 +1,2 @@
 facing = -1;
-patrol_dis = 32;
+patrol_dis = 320;

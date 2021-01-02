@@ -7,7 +7,14 @@ function bug_chase_step() {
 		target_x = o_player.xprevious;
 		target_y = o_player.yprevious - (sprite_get_height(o_player.sprite_index) / 2);
 	} else {
-		state = BUG_STATES.IDLE;
+		// return to start position if player has died
+		target_x = start_x;
+		target_y = start_y;
+		
+		// return to idle state at or near start position
+		if (abs(x - start_x) < 2 && abs(y - start_y) < 2) {
+			state = BUG_STATES.IDLE;
+		}
 	}
 	
 	// calculate movement
@@ -15,12 +22,25 @@ function bug_chase_step() {
 	var xx = lengthdir_x(chase_spd, _dir);
 	var yy = lengthdir_y(chase_spd, _dir);
 	
-	movement.horizontalSpeed = xx;
-	movement.verticalSpeed = yy;
+	// if knocked back, don't advance
+	if (!hurt && alarm[KNOCKEDBACK] < 0) {
+		// move towards the player
+		var buffer = 15; // stop flicking left/right when at player's x
+		if (abs(x - o_player.x) > buffer || o_player.hp <= 0) {
+			movement.horizontalSpeed = xx;
+		}
+		movement.verticalSpeed = yy;
+	} else {
+		// bug is hurt
+		// ensure no vertical movement when knocked back
+		movement.verticalSpeed = 0;
+		// slowdown knockback
+		//movement.horizontalSpeed = lerp(movement.horizontalSpeed, 0, drag);
+	}
 	
 	// facing direction
-	if (sign(movement.horizontalSpeed) != 0) {
-		facing = sign(movement.horizontalSpeed);
+	if (sign(xx) != 0) {
+		facing = sign(xx);
 	}
 
 	// apply movement

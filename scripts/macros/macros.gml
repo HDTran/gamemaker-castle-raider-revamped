@@ -14,6 +14,8 @@
 // frog
 #macro INHALE 1
 #macro HURT 2
+// bug
+#macro KNOCKEDBACK 3
 
 // chest
 #macro OPEN 0

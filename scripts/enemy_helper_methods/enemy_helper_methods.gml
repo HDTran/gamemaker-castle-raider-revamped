@@ -6,6 +6,17 @@ function checkEnemyHP() {
 			repeat(o_game.enemy_sparks) {
 				var inst = instance_create_depth(x, (bbox_bottom + bbox_top)/2, depth-1, o_spark);
 				switch (object_index) {
+					case o_bug:
+						if (choose(0, 1, 1)) {
+							// red
+							inst.col_head = c_red;
+							inst.col_tail = c_maroon;
+						} else {
+							// green
+							inst.col_head = c_lime;
+							inst.col_tail = c_green;
+						}
+					break;
 					case o_frog:
 						if (choose(0, 1, 1)) {
 							// gray
@@ -72,7 +83,19 @@ function process_enemy_attack(hurtKnockback, blockKnockback) {
 				// move player away from the attack
 				movement.horizontalSpeed = sign(x - other.x) * blockKnockback;
 				
+				// screen shake
 				scr_screen_shake(.125, -1);
+				
+				// enemy gets knocked back too
+				with (other) {
+					if (object_index == o_bug) {
+						// zero decimal to get exact movement
+						movement.horizontalSpeedDecimal = 0;
+						// knock the enemy away from the player
+						movement.horizontalSpeed = sign(x - o_player.x) * other.knockback_dis;
+						alarm[KNOCKEDBACK] = other.knockback_time;
+					}
+				}
 			}
 		}
 	}	

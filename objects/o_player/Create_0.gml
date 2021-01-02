@@ -50,6 +50,9 @@ hurt = false;
 hurtTime = room_speed;
 hp = 5;
 maxHP = hp;
+// how long enemies get knocked back for when hit
+knockback_time = room_speed / 2;
+knockback_dis = 1.5;
 
 input = {
 	up: 0,
