@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"s_player_idle","path":"sprites/s_player_idle/s_player_idle.yy",},"order":6,},
+    {"id":{"name":"s_lives","path":"sprites/s_lives/s_lives.yy",},"order":6,},
     {"id":{"name":"s_player_attack_walk","path":"sprites/s_player_attack_walk/s_player_attack_walk.yy",},"order":2,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":3,},
     {"id":{"name":"s_sword_hit2","path":"sprites/s_sword_hit2/s_sword_hit2.yy",},"order":13,},

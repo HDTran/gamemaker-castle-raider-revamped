@@ -96,7 +96,12 @@ function player_die_step() {
 		image_speed = 0;
 		get_input();
 		if (input.jump || input.attack) {
-			room_restart();
+			if (lives <= 0) {
+				game_restart();
+			} else {
+				room_restart();
+			}
+
 			// reset player
 			x = room_start_pos_x;
 			y = room_start_pos_y;

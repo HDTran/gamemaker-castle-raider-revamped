@@ -26,3 +26,14 @@ draw_sprite(s_hp_bar, 1, xStart, yStart);
 draw_sprite_ext(s_hp_bar, 2, xStart, yStart, o_player.hp/o_player.maxHP, 1, 0, c_white, image_alpha);
 draw_sprite(s_hp_bar, 0, xStart, yStart);
 
+// lives
+xx = 64;
+yy = 48;
+var gap = 22; // gap between lives
+if (lives > 0) {
+	// draw number of lives
+	for (var i = 0; i < lives; i++) {
+		draw_sprite(s_lives, 0, xx + (i*gap), yy);
+	}
+}
+
