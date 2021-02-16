@@ -36,4 +36,3 @@ if (lives > 0) {
 		draw_sprite(s_lives, 0, xx + (i*gap), yy);
 	}
 }
-

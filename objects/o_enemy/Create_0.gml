@@ -7,4 +7,8 @@ flashCounter = 0;
 // slowdown
 drag = 0.12;
 
+
 deathGemValue = 3; // how many gems to drop on death
+
+// hp
+hp_drop_chance = 0.3;

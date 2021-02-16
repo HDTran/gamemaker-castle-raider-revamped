@@ -1,7 +1,7 @@
 {
   "resources": [
     {"id":{"name":"s_player_idle","path":"sprites/s_player_idle/s_player_idle.yy",},"order":6,},
-    {"id":{"name":"s_lives","path":"sprites/s_lives/s_lives.yy",},"order":6,},
+    {"id":{"name":"s_lives","path":"sprites/s_lives/s_lives.yy",},"order":2,},
     {"id":{"name":"s_player_attack_walk","path":"sprites/s_player_attack_walk/s_player_attack_walk.yy",},"order":2,},
     {"id":{"name":"macros","path":"scripts/macros/macros.yy",},"order":3,},
     {"id":{"name":"s_sword_hit2","path":"sprites/s_sword_hit2/s_sword_hit2.yy",},"order":13,},
@@ -9,6 +9,7 @@
     {"id":{"name":"s_bug_chase","path":"sprites/s_bug_chase/s_bug_chase.yy",},"order":1,},
     {"id":{"name":"o_enemy","path":"objects/o_enemy/o_enemy.yy",},"order":2,},
     {"id":{"name":"o_bug","path":"objects/o_bug/o_bug.yy",},"order":2,},
+    {"id":{"name":"s_hp","path":"sprites/s_hp/s_hp.yy",},"order":6,},
     {"id":{"name":"fnt_stats","path":"fonts/fnt_stats/fnt_stats.yy",},"order":0,},
     {"id":{"name":"enemy_helper_methods","path":"scripts/enemy_helper_methods/enemy_helper_methods.yy",},"order":3,},
     {"id":{"name":"o_player_dust_jump","path":"objects/o_player_dust_jump/o_player_dust_jump.yy",},"order":1,},
@@ -23,6 +24,7 @@
     {"id":{"name":"t_castle","path":"tilesets/t_castle/t_castle.yy",},"order":1,},
     {"id":{"name":"player_methods","path":"scripts/player_methods/player_methods.yy",},"order":4,},
     {"id":{"name":"s_player_jump","path":"sprites/s_player_jump/s_player_jump.yy",},"order":7,},
+    {"id":{"name":"o_hp","path":"objects/o_hp/o_hp.yy",},"order":7,},
     {"id":{"name":"s_player_hurting","path":"sprites/s_player_hurting/s_player_hurting.yy",},"order":14,},
     {"id":{"name":"o_spark","path":"objects/o_spark/o_spark.yy",},"order":1,},
     {"id":{"name":"t_collisions","path":"tilesets/t_collisions/t_collisions.yy",},"order":0,},

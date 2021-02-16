@@ -1,5 +1,12 @@
 function checkEnemyHP() {
 	if (hp <= 0) {
+		// hp drop
+		var _chance = random(1);
+		if (_chance <= hp_drop_chance) {
+			instance_create_layer(x, bbox_top, "Gems", o_hp);
+		}
+
+		// gem drop
 		repeat(deathGemValue) {
 			instance_create_layer(x, bbox_top, "Gems", o_gem);
 			// generate particles
