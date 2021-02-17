@@ -27,3 +27,13 @@ current_frame = 0;
 fade_in = true;
 alpha = 1;
 fade_spd = 0.02;
+
+// highscore
+savename = "game.sav";
+highscore = 0;
+
+// open savefile
+ini_open(savename); // GMS will create on first load
+// read highscore or set to 0 if none
+highscore = ini_read_real("Score", "Highscore", 0);
+ini_close();

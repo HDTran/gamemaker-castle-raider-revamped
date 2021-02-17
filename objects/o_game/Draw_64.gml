@@ -107,6 +107,14 @@ if (room != rm_menu) {
 		var _score_total = score + _gems_total + _lives_total;
 		text[11] = _score_total;
 	
+		// update highscore
+		if (_score_total > highscore) {
+			highscore = _score_total;
+			ini_open(savename);
+			ini_write_real("Score", "Highscore", highscore);
+			ini_close();
+		}
+	
 		// set starting position
 		var xx = mx - 10;
 		var yy = my - 32;
@@ -151,7 +159,16 @@ if (room != rm_menu) {
 			fade_to_room(rm_00, 0, 0, 1, c_black);
 		}
 	}
+	
+	// draw main menu
 	draw_sprite(s_main_menu, 0, 0, ((move * factor) - start_y));
+	
+	// draw highscore
+	if (current_frame == max_frames) {
+		draw_set_halign(fa_right);
+		draw_set_font(fnt_bookman);
+		draw_text_ext_color(gw - 10, 28, highscore, 5, 100, c_aqua, c_aqua, c_gray, c_gray, 1);
+	}
 }
 
 // fade screen in
