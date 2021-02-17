@@ -35,6 +35,7 @@ scale_decay = 0.2;
 
 // gems
 gems = 0;
+gems_value = 50;
 
 // set rm_00 start position
 room_start_pos_x = 64;
@@ -57,6 +58,7 @@ knockback_dis = 1.5;
 // lives
 lives_initial = 3;
 lives = lives_initial;
+lives_value = 1000;
 
 input = {
 	up: 0,
