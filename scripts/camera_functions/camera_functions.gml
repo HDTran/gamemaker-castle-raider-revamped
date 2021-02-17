@@ -22,6 +22,24 @@ function on_screen(_buffer) {
 	var right = global.cx + global.cw + _buffer;
 	var top = global.cy - _buffer;
 	var bottom = global.cy + global.ch + _buffer;
-	
+
 	return (x > left && x < right && y > top && y < bottom);
+}
+
+/// @func fade_to_room(_target_room, _target_x, _target_y, _facing, _color)
+/// @desc Fades to another room
+/// @param _target_room
+/// @param _target_x
+/// @param _target_y
+/// @param _facing
+/// @param _color
+function fade_to_room(_target_room, _target_x, _target_y, _facing, _color) {
+	var _fade = instance_create_layer(x, y, "Fade", o_fade);
+	with (_fade) {
+		target_rm = _target_room;
+		target_x = _target_x;
+		target_y = _target_y;
+		facing = _facing;
+		col = _color;
+	}
 }

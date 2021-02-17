@@ -25,8 +25,8 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"75620b1b-e338-4172-b1d0-2a31940ba873","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"75620b1b-e338-4172-b1d0-2a31940ba873","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"LayerId":{"name":"b37b8ed1-649e-44b4-a0df-2c5f4d12ac7e","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"75620b1b-e338-4172-b1d0-2a31940ba873","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"LayerId":{"name":"2cad126b-58ac-4404-994a-7db4a60c1d4a","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"75620b1b-e338-4172-b1d0-2a31940ba873","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"LayerId":{"name":"b37b8ed1-649e-44b4-a0df-2c5f4d12ac7e","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"s_frog_attack_hitbox","path":"sprites/s_frog_attack_hitbox/s_frog_attack_hitbox.yy",},"resourceVersion":"1.0","name":"75620b1b-e338-4172-b1d0-2a31940ba873","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
