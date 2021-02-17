@@ -38,6 +38,17 @@ function checkEnemyHP() {
 				}
 			}
 		}
+		
+		// change scores
+		switch(object_index) {
+			case o_frog:
+				score += 50;
+			break;
+			case o_bug:
+				score += 100;
+			break;
+		}
+		
 		scr_screen_shake(.15, -1);
 		instance_destroy();
 	}

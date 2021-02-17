@@ -14,6 +14,7 @@
     {"id":{"name":"enemy_helper_methods","path":"scripts/enemy_helper_methods/enemy_helper_methods.yy",},"order":3,},
     {"id":{"name":"o_player_dust_jump","path":"objects/o_player_dust_jump/o_player_dust_jump.yy",},"order":1,},
     {"id":{"name":"frog_methods","path":"scripts/frog_methods/frog_methods.yy",},"order":1,},
+    {"id":{"name":"s_score","path":"sprites/s_score/s_score.yy",},"order":3,},
     {"id":{"name":"s_gem","path":"sprites/s_gem/s_gem.yy",},"order":0,},
     {"id":{"name":"o_player_dust_land","path":"objects/o_player_dust_land/o_player_dust_land.yy",},"order":2,},
     {"id":{"name":"camera_functions","path":"scripts/camera_functions/camera_functions.yy",},"order":5,},
