@@ -1,3 +1,3 @@
-target_rm = rm_01;
+target_rm = rm_02;
 target_x = 20;
-target_y = 127;
+target_y = 575;
