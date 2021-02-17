@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Control",
-    "path": "folders/Objects/Objects/Control.yy",
+    "path": "folders/Objects/Control.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_game",

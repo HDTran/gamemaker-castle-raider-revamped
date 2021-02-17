@@ -29,6 +29,12 @@ if (fade_to_color) {
 			scale_x = 1;
 			scale_y = 1;
 			
+			// reset player if dead
+			if (state == PLAYER_STATES.DIE) {
+				image_speed = 1;
+				hp = maxHP;
+			}
+			
 			// change state and update animation
 			state = PLAYER_STATES.IDLE;
 			anim();

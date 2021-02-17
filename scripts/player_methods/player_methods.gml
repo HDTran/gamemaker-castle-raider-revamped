@@ -100,18 +100,20 @@ function player_die_step() {
 		} else {
 			get_input();
 			if (input.jump || input.attack) {
-				room_restart();
-				// reset player
-				x = room_start_pos_x;
-				y = room_start_pos_y;
-				facing = room_start_facing;
-				state = PLAYER_STATES.IDLE;
+				//room_restart();
+				//// reset player
+				//x = room_start_pos_x;
+				//y = room_start_pos_y;
+				//facing = room_start_facing;
+				//state = PLAYER_STATES.IDLE;
 			
-				// reset speed after death pause
-				image_speed = 1;
+				//// reset speed after death pause
+				//image_speed = 1;
 			
-				// reset hp
-				hp = maxHP;
+				//// reset hp
+				//hp = maxHP;
+				fade_to_room(room, room_start_pos_x, room_start_pos_y, room_start_facing, c_black);
+				
 			
 				// allow instant camera panning
 				with(o_camera) {
