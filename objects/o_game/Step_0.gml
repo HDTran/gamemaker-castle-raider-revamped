@@ -1,4 +1,6 @@
-if (instance_exists(o_player)) {
+var debug = false;
+
+if (debug && instance_exists(o_player)) {
 	// debug to test gems
 	var hasGemsLayer = layer_get_id("Gems");
 	if (hasGemsLayer && mouse_check_button_pressed(mb_left)) {
