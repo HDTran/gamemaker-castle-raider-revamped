@@ -34,6 +34,13 @@ if (die) {
 	}
 
 	image_speed = 1;
+	
+	// play arrow die sound only if arrow is on screen
+	if (on_screen(40)) {
+		if (image_index == 1) {
+			audio_play_sound(snd_arrow_die, 20, false);
+		}
+	}
 }
 
 // destroy arrow if leaving room

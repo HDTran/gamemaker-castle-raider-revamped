@@ -42,6 +42,11 @@ function bug_chase_step() {
 	if (sign(xx) != 0) {
 		facing = sign(xx);
 	}
+	
+	// sound
+	if (!audio_is_playing(snd_bug_chase)) {
+		audio_play_sound(snd_bug_chase, 30, false);
+	}
 
 	// apply movement
 	collision();
@@ -71,6 +76,7 @@ function bug_idle_step() {
 	// chase
 	if (distance_to_object(o_player) < chase_distance && o_player.hp > 0) {
 		state = BUG_STATES.CHASE;
+		audio_play_sound(snd_bug_sees_player, 40, false);
 	}
 
 	// apply movement
@@ -103,6 +109,7 @@ function bug_patrol_step() {
 	// chase
 	if (distance_to_object(o_player) < chase_distance && o_player.hp > 0) {
 		state = BUG_STATES.CHASE;
+		audio_play_sound(snd_bug_sees_player, 40, false);
 	}
 
 	// apply movement

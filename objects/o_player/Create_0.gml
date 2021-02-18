@@ -38,8 +38,11 @@ gems = 0;
 gems_value = 50;
 
 // set rm_00 start position
-room_start_pos_x = 20//64;
-room_start_pos_y = 575//127;
+room_start_pos_x = 64;
+room_start_pos_y = 127;
+// rm_02 start position
+// room_start_pos_x = 20;
+// room_start_pos_y = 575;
 room_start_facing = 1;
 x = room_start_pos_x;
 y = room_start_pos_y;

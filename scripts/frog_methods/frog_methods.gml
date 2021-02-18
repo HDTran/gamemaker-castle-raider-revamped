@@ -21,6 +21,9 @@ function frog_attack_step() {
 			// create hitbox when on these frames
 			var inst = instance_create_layer(x, y, "Enemies", o_frog_attack_hitbox);
 			inst.image_xscale = facing; // ensure hitbox faces the way the frog that created is facing
+			if (image_index == 5) {
+				audio_play_sound(snd_frog_attack, 15, false);
+			}
 		}
 
 		// set tongue depth
@@ -192,6 +195,9 @@ function frog_jump_start_step() {
 	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
 		state = FROG_STATES.JUMP;
 		movement.verticalSpeed = movement.jumpSpeed;
+		if (on_screen(40)) {
+			audio_play_sound(snd_frog_jump, 20, false);
+		}
 	}
 
 	// apply movement

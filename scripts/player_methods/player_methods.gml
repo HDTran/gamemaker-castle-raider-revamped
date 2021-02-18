@@ -21,6 +21,9 @@ function player_attack_step() {
 	if (image_index >= startingSlashImageIndex && image_index <= endingSlashImageIndex) {
 		var inst = instance_create_layer(x, y, "Player", o_player_attack_hitbox);
 		inst.image_xscale = facing;
+		if (image_index == 1) {
+			audio_play_sound(snd_sword_swing, 20, false);
+		}
 	}
 
 	// enable smaller jumps
@@ -97,7 +100,7 @@ function player_die_step() {
 
 		if (lives <= 0) {
 			o_game.game_over_lose = true;
-		} else {
+		} else {			
 			get_input();
 			if (input.jump || input.attack) {
 				//room_restart();
@@ -223,6 +226,7 @@ function player_jump_step() {
 		// create dust if landing
 		if (movement.verticalSpeed > 0) {
 			instance_create_layer(x, y, "Dust", o_player_dust_land);
+			audio_play_sound(snd_landing, 20, false);
 		}
 	}
 	if (input.attack) {

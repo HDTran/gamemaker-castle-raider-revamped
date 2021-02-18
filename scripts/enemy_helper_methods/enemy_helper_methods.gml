@@ -4,7 +4,14 @@ function checkEnemyHP() {
 		var _chance = random(1);
 		if (_chance <= hp_drop_chance) {
 			instance_create_layer(x, bbox_top, "Gems", o_hp);
+			audio_play_sound(snd_hp_spawning, 15, false);
 		}
+		
+		// play death sound
+		audio_play_sound(snd_enemy_dying, 10, false);
+
+		// play gem spawn
+		audio_play_sound(snd_gems_spawning, 15, false);
 
 		// gem drop
 		repeat(deathGemValue) {
@@ -88,6 +95,9 @@ function process_enemy_attack(hurtKnockback, blockKnockback) {
 			
 			// screen shake
 			scr_screen_shake(.125, -1);
+			
+			// play sound
+			audio_play_sound(snd_player_hit, 40, false);
 		} else {
 			// is blocking damage
 			if (state != PLAYER_STATES.KNOCKBACK) {
@@ -103,6 +113,9 @@ function process_enemy_attack(hurtKnockback, blockKnockback) {
 				
 				// screen shake
 				scr_screen_shake(.125, -1);
+				
+				// play sound
+				audio_play_sound(snd_block, 40, false);
 				
 				// enemy gets knocked back too
 				with (other) {

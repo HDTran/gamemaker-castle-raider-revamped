@@ -5,4 +5,5 @@ if (input.action && !other.open && hp > 0 && isOnSameHeight) {
 		open = true;
 		alarm[OPEN] = 1;
 	}
+	audio_play_sound(snd_open_chest, 50, false);
 }

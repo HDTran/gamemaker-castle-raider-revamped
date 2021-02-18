@@ -65,6 +65,7 @@ function check_player_hp() {
 		scale_x = 1;
 		scale_y = 1;
 		lives--;
+		audio_play_sound(snd_player_die, 15, false);
 	}
 }
 
@@ -115,5 +116,6 @@ function jumped() {
 		movement.verticalSpeed = movement.jumpSpeed;
 		movement.jumps -= 1;
 		jump_dust();
+		audio_play_sound(snd_jump, 15, false);
 	}
 }

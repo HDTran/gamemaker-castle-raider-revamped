@@ -32,6 +32,10 @@ with (o_enemy) {
 				alarm[HURT] = hurtTime;
 				
 				scr_screen_shake(.1, 1.5);
+				
+				if (!audio_is_playing(snd_sword_hit)) {
+					audio_play_sound(snd_sword_hit, 10, false);
+				}
 
 				var inst = instance_create_depth(x, (bbox_top + bbox_bottom)/2, depth -1, o_sword_hit);
 				inst.image_xscale = o_player.facing;
